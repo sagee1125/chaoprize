@@ -13,6 +13,15 @@
   }
 }
 
+.font-mix {
+  font-family: Baskerville, serif;
+}
+.font-mix:lang(zh),
+.font-mix:lang(zh-Hant),
+.font-mix:lang(zh-Hans) {
+  font-family: "PolyU Kai", KaiTi, serif;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
