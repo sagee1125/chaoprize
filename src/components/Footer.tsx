@@ -4,35 +4,36 @@ export const footerColumns = [
   {
     title: "INTRODUCTION",
     links: [
-      { label: "ABOUT THE PRIZE", href: "/introduction/about-the-prize" },
-      { label: "THE ORGANISER", href: "/introduction/the-organiser" },
-      { label: "THE PATRON", href: "/introduction/the-patron" },
+      { label: "ABOUT THE PRIZE", href: "/abouttheprize" },
+      { label: "THE ORGANISER", href: "/theorganiser" },
+      { label: "THE PATRON", href: "/thepatron" },
     ],
   },
   {
     title: "AWARDS & LAUREATES",
     links: [
-      { label: "AWARDS", href: "/awards-and-laureates/awards" },
-      { label: "LAUREATES", href: "/awards-and-laureates/laureates" },
+      { label: "AWARDS", href: "/awards" },
+      { label: "LAUREATES", href: "/laureates" },
     ],
   },
   {
     title: "NOMINATION",
     links: [
-      { label: "NOMINATION", href: "/nomination/nomination" },
-      { label: "IMPORTANT DATES", href: "/nomination/important-dates" },
+      { label: "NOMINATION", href: "/nomination" },
+      { label: "IMPORTANT DATES", href: "/importantdates" },
     ],
   },
   {
     title: "MEDIA",
     links: [
-      { label: "NEWS", href: "/media/news" },
-      { label: "GALLERY", href: "/media/gallery" },
-      { label: "PUBLICATIONS", href: "/media/publications" },
+      { label: "NEWS", href: "/news" },
+      { label: "GALLERY", href: "/gallery" },
+      { label: "PUBLICATIONS", href: "/publications" },
     ],
   },
   {
     title: "CONTACT US",
+    self: "/contactus",
     links: [], // 無列身
   },
 ];
