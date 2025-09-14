@@ -13,6 +13,8 @@ module.exports = {
       colors: {
         main: "#704936",
         second: "#B68B47",
+        light: "#E5B66B",
+        bcg: "#FDECC2",
       },
       fontFamily: {
         en: ["Baskerville", "serif"],
