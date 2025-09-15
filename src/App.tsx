@@ -1,26 +1,26 @@
 import React from "react";
 import "./App.css";
 import Header from "./components/Header";
-import Banner from "./components/Banner";
 import Footer from "./components/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
+import Home from "./pages/Home/Home";
+import SectionBanner from "./components/SectionBanner";
 
-const AboutThePrize = () => <div>ABOUT THE PRIZE</div>;
-const TheOrganiser = () => <div>THE ORGANISER</div>;
-const ThePatron = () => <div>THE PATRON</div>;
+const AboutThePrize = () => <SectionBanner title="ABOUT THE PRIZE" />;
+const TheOrganiser = () => <SectionBanner title="THE ORGANISER" />;
+const ThePatron = () => <SectionBanner title="THE PATRON" />;
 
-const Awards = () => <div>AWARDS</div>;
-const Laureates = () => <div>LAUREATES</div>;
+const Awards = () => <SectionBanner title="AWARDS" />;
+const Laureates = () => <SectionBanner title="LAUREATES" />;
 
-const Nomination = () => <div>NOMINATION</div>;
-const ImportantDates = () => <div>IMPORTANT DATES</div>;
+const Nomination = () => <SectionBanner title="NOMINATION" />;
+const ImportantDates = () => <SectionBanner title="IMPORTANT DATES" />;
 
-const News = () => <div>NEWS</div>;
-const Gallery = () => <div>GALLERY</div>;
-const Publications = () => <div>PUBLICATIONS</div>;
+const News = () => <SectionBanner title="NEWS" />;
+const Gallery = () => <SectionBanner title="GALLERY" />;
+const Publications = () => <SectionBanner title="PUBLICATIONS" />;
 
-const ContactUs = () => <div>CONTACT US</div>;
+const ContactUs = () => <SectionBanner title="CONTACT US" />;
 
 function App() {
   return (

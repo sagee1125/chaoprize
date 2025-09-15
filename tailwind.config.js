@@ -14,6 +14,7 @@ module.exports = {
         main: "#704936",
         second: "#B68B47",
         light: "#E5B66B",
+        dark: "#57301D",
         bcg: "#FDECC2",
       },
       fontFamily: {
