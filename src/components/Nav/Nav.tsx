@@ -1,16 +1,25 @@
 import React, { useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { sitemap } from "./const";
+import { useSitemap } from "../../utils";
+import { Language, useLanguage } from "../../context";
 
 const Nav: React.FC = () => {
   const [hovered, setHovered] = useState<string | null>(null);
+  const { lang } = useLanguage();
+  const sitemap = useSitemap();
 
   return (
     <nav
-      className="text-main !font-en space-x-6 w-full items-center relative flex justify-center"
+      className={`text-main w-full space-x-6  items-center relative flex justify-center
+         ${lang === Language.EN ? "font-en" : "font-zh"}
+         `}
       onMouseLeave={() => setHovered(null)}
     >
-      <div className="flex space-x-6 px-8 py-4 relative">
+      <div
+        className={`flex px-8 py-4 relative ${
+          lang === Language.EN ? "space-x-6" : "space-x-12"
+        }`}
+      >
         {sitemap.map((col) => (
           <div
             key={col.title}

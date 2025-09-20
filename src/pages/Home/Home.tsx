@@ -1,8 +1,12 @@
 import React from "react";
 import Banner from "../../components/Banner";
+import { Language, useLanguage } from "../../context";
+import { importantDatesIcon, nominationIcon } from "./const";
 
 const Homepage: React.FC = () => {
-  const imgs = [
+  const { lang } = useLanguage();
+
+  const marqueeImgs = [
     "/banner/5-JCR67431.jpg",
     "/banner/99-JDC_8557.jpg",
     "/banner/154-JCR67468.jpg",
@@ -10,13 +14,60 @@ const Homepage: React.FC = () => {
     "/banner/HEI_8543.jpg",
     "/banner/HEI_9006.jpg",
   ];
+
+  const awardsLaureatesImages = [
+    "/images/homepage/LAA-EN_3x.avif",
+    "/images/homepage/ECCA-EN_3x.avif",
+  ];
+
+  const nominationSection = [
+    {
+      label: "Nomination",
+      icon: nominationIcon,
+      href: "/nomination",
+    },
+    {
+      label: "Important Dates",
+      icon: importantDatesIcon,
+      href: "/importantdates",
+    },
+  ];
+
+  const mediaSection = [
+    {
+      cate: "NEWS",
+      img: "/images/homepage/ChaoPrize_Result_1st_r3c.avif",
+      label: "First Yuen Ren Chao Prize in Language",
+      desc: "Science Announced",
+      href: "/news",
+      viewWebsite:
+        "https://www.polyu.edu.hk/fh/news-and-events/news/2024/the-first-yuen-ren-chao-prize-in-language-sciences-announced/?sc_lang=en",
+    },
+    {
+      cate: "GALLERY",
+      img: "/images/homepage/HEI_9822.avif",
+      label: "Chao Prize Presentation",
+      desc: "Ceremony",
+      href: "/gallery",
+    },
+    {
+      cate: "PUBLICATIONS",
+      img: "/images/homepage/ChaoPrize_2024.avif",
+      label: "The Chao Prize 2024 Award Presentation",
+      desc: "Brochure",
+      href: "https://www.chaoprize.org/_files/ugd/e1a3ec_d7a9055ecd764ef19247e648136d0600.pdf",
+    },
+  ];
   return (
-    <div className="flex flex-col items-center font-en w-full max-w-screen overflow-x-hidden">
+    <div
+      className={`flex flex-col items-center font-en w-full max-w-screen overflow-x-hidden pb-12
+                    ${lang === Language.EN ? "font-en" : "font-zh"}`}
+    >
       <Banner />
 
-      <div className="max-w-3xl mx-auto text-center text-main py-12 px-4 !font-thin">
-        <p className="text-5xl my-4">ABOUT THE PRIZE</p>
-        <p className="mb-6 leading-relaxed">
+      <div className="w-full mx-auto text-center text-main py-12 px-4 !font-thin">
+        <p className="text-5xl my-10 text-dark">ABOUT THE PRIZE</p>
+        <p className="mb-6 leading-relaxed text-lg">
           The Yuen Ren Chao Prize in Language Science, organised by
           <br />
           The Hong Kong Polytechnic University (PolyU), is an international
@@ -28,22 +79,107 @@ const Homepage: React.FC = () => {
         {/* Learn More button */}
         <a
           href="/abouttheprize"
-          className="inline-block bg-[#b68b47] hover:bg-main text-white px-6 py-3 font-medium transition-colors"
+          className="inline-block bg-[#b68b47] hover:bg-main text-white px-6 py-3 font-medium transition-colors tracking-wider"
         >
           Learn More
         </a>
       </div>
 
       <div className="p-8">
-        <ImageMarquee imgs={imgs} speed={48} />
+        <ImageMarquee imgs={marqueeImgs} speed={48} />
       </div>
 
-      <div className="max-w-3xl mx-auto text-center text-main py-12 px-4 !font-thin">
-        <p className="text-5xl my-4">AWARDS & LAUREATES</p>
-        <p className="mb-6 leading-relaxed">
+      <div className="w-full mx-auto text-center text-main py-12 px-4 !font-thin">
+        <p className="text-5xl my-10 text-dark">AWARDS & LAUREATES</p>
+        <p className="mb-10 leading-relaxed text-lg">
           Two awards will be given biennially, namely Lifetime Achievement Award
           and Early Career Contribution Award.
         </p>
+        <div className="flex flex-col md:flex-row justify-center items-center gap-8">
+          {awardsLaureatesImages.map((src, idx) => (
+            <div
+              key={idx}
+              className="w-[300px] h-auto md:w-[540px] md:h-[368px] overflow-hidden cursor-pointer transform transition-transform ease-in-out duration-[700ms] hover:scale-105"
+            >
+              <a href="/awards" target="_self">
+                <img
+                  src={src}
+                  alt={`home-${idx}`}
+                  className="w-full h-full object-cover"
+                />
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="w-full  mx-auto text-center text-main py-12 px-4 !font-thin">
+        <p className="text-5xl my-10 text-dark">NOMINATION</p>
+        <div className="flex flex-col md:flex-row justify-center items-center gap-8">
+          {nominationSection.map((item, idx) => (
+            <div
+              key={idx}
+              className="bg-lightBgc w-[300px] h-[300px] md:w-[540px] md:h-[368px] 
+                        overflow-hidden flex flex-col justify-center items-center gap-4"
+            >
+              <div>{item.icon}</div>
+              <p className="text-lg md:text-4xl">{item.label}</p>
+              <a
+                href={item.href}
+                target="_self"
+                className="inline-block bg-[#b68b47] hover:bg-main text-white px-6 py-3 font-medium transition-colors tracking-wider"
+              >
+                Learn More
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="mx-8 md:px-[240px] w-full mx-auto text-center text-main py-12 px-4 !font-thin">
+        <p className="text-5xl my-10 text-dark">MEDIA</p>
+        <div className="w-full grid grid-cols-3 gap-4 md:gap-8">
+          {mediaSection.map((item, idx) => (
+            <div
+              key={idx}
+              className="w-full text-[10px]
+                        overflow-hidden flex flex-col justify-start items-center"
+            >
+              <div>
+                <img
+                  src={item.img}
+                  alt={item.label}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <a href={item.href} className="md:text-base py-4 text-main">
+                {item.cate}
+              </a>
+              <span className="md:text-base">{item.label}</span>
+              <span className="md:text-base">{item.desc}</span>
+
+              {item.viewWebsite ? (
+                <a
+                  href={item.viewWebsite}
+                  target="_blank"
+                  className="inline-block bg-[#b68b47] hover:bg-main text-white 
+                        py-1 px-3 my-2 md:my-4 md:text-base md:px-6 md:py-2
+                        transition-colors tracking-wider"
+                >
+                  View
+                </a>
+              ) : (
+                <div
+                  className="inline-block bg-[#b68b47] hover:bg-main text-white 
+                        py-1 px-3 my-2 md:my-4 md:text-base md:px-6 md:py-2
+                        transition-colors tracking-wider"
+                >
+                  View
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
