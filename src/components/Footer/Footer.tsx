@@ -4,7 +4,7 @@ import { Language, useLanguage } from "../../context";
 import { trilingualText } from "./i18n";
 import { useSitemap } from "../../utils";
 
-const Footer: React.FC = () => {
+export const Footer: React.FC = () => {
   const { lang } = useLanguage();
   const sitemap = useSitemap();
 
@@ -135,5 +135,3 @@ const Footer: React.FC = () => {
     </footer>
   );
 };
-
-export default Footer;

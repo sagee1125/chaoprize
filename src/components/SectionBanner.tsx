@@ -6,10 +6,10 @@ interface SectionBannerProps {
   className?: string;
 }
 
-export default function SectionBanner({
-  title,
-  className = "",
-}: SectionBannerProps) {
+export const SectionBanner: React.FunctionComponent<SectionBannerProps> = (
+  props: SectionBannerProps
+) => {
+  const { title, className } = props;
   return (
     <section
       className={`w-screen h-[10vh ]md:h-[20vh] lg:h-[40vh] relative overflow-hidden ${className}`}
@@ -29,4 +29,4 @@ export default function SectionBanner({
       </div>
     </section>
   );
-}
+};

@@ -1,8 +1,8 @@
 import React from "react";
 import { Language, useLanguage } from "../../context";
-import SectionBanner from "../../components/SectionBanner";
+import { SectionBanner } from "../../components";
 
-const ThePatron: React.FC = () => {
+export const ThePatron: React.FC = () => {
   const { lang } = useLanguage();
 
   return (
@@ -49,5 +49,3 @@ const ThePatron: React.FC = () => {
     </div>
   );
 };
-
-export default ThePatron;

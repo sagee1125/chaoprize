@@ -1,17 +1,17 @@
 import React from "react";
 import "./App.css";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
+import { Header, Footer, SectionBanner } from "./components";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import SectionBanner from "./components/SectionBanner";
 import { LanguageProvider } from "./context";
-import Home from "./pages/Home/Home";
-import AboutThePrize from "./pages/AboutThePrize/AboutThePrize";
-import ContactUs from "./pages/ContactUs/ContactUs";
-import TheOrganiser from "./pages/TheOrganiser/TheOrganiser";
-import ThePatron from "./pages/ThePatron/ThePatron";
+import {
+  AboutThePrize,
+  Awards,
+  TheOrganiser,
+  ThePatron,
+  ContactUs,
+  Home,
+} from "./pages";
 
-const Awards = () => <SectionBanner title="AWARDS" />;
 const Laureates = () => <SectionBanner title="LAUREATES" />;
 
 const Nomination = () => <SectionBanner title="NOMINATION" />;
