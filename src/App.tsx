@@ -8,9 +8,8 @@ import { LanguageProvider } from "./context";
 import Home from "./pages/Home/Home";
 import AboutThePrize from "./pages/AboutThePrize/AboutThePrize";
 import ContactUs from "./pages/ContactUs/ContactUs";
-
-const TheOrganiser = () => <SectionBanner title="THE ORGANISER" />;
-const ThePatron = () => <SectionBanner title="THE PATRON" />;
+import TheOrganiser from "./pages/TheOrganiser/TheOrganiser";
+import ThePatron from "./pages/ThePatron/ThePatron";
 
 const Awards = () => <SectionBanner title="AWARDS" />;
 const Laureates = () => <SectionBanner title="LAUREATES" />;
