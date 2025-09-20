@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { footerColumns } from "./Footer";
+import { sitemap } from "./const";
 
 const Nav: React.FC = () => {
   const [hovered, setHovered] = useState<string | null>(null);
@@ -11,7 +11,7 @@ const Nav: React.FC = () => {
       onMouseLeave={() => setHovered(null)}
     >
       <div className="flex space-x-6 px-8 py-4 relative">
-        {footerColumns.map((col) => (
+        {sitemap.map((col) => (
           <div
             key={col.title}
             className="relative"
@@ -45,11 +45,10 @@ const Nav: React.FC = () => {
 
         {/* 下拉框，寬度等於整個 nav */}
         {hovered &&
-          footerColumns.find((col) => col.title === hovered)?.links.length! >
-            0 && (
+          sitemap.find((col) => col.title === hovered)?.links.length! > 0 && (
             <div className="absolute left-0 top-full w-full h-[200px] bg-white/80 text-black shadow-lg z-50 overflow-auto">
               <ul className="flex flex-col p-4 gap-2">
-                {footerColumns
+                {sitemap
                   .find((col) => col.title === hovered)!
                   .links.map((link) => (
                     <li key={link.label}>
