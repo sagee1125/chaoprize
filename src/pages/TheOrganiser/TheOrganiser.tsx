@@ -1,8 +1,8 @@
 import React from "react";
 import { Language, useLanguage } from "../../context";
-import SectionBanner from "../../components/SectionBanner";
+import { SectionBanner } from "../../components";
 
-const TheOrganiser: React.FC = () => {
+export const TheOrganiser: React.FC = () => {
   const { lang } = useLanguage();
 
   return (
@@ -42,5 +42,3 @@ const TheOrganiser: React.FC = () => {
     </div>
   );
 };
-
-export default TheOrganiser;

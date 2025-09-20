@@ -1,8 +1,8 @@
 import React from "react";
 import { Language, useLanguage } from "../../context";
-import SectionBanner from "../../components/SectionBanner";
+import { SectionBanner } from "../../components";
 
-const ContactUs: React.FC = () => {
+export const ContactUs: React.FC = () => {
   const { lang } = useLanguage();
 
   return (
@@ -22,5 +22,3 @@ const ContactUs: React.FC = () => {
     </div>
   );
 };
-
-export default ContactUs;

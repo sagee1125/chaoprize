@@ -3,7 +3,7 @@ import Banner from "../../components/Banner";
 import { Language, useLanguage } from "../../context";
 import { importantDatesIcon, nominationIcon } from "./const";
 
-const Homepage: React.FC = () => {
+export const Home: React.FC = () => {
   const { lang } = useLanguage();
 
   const marqueeImgs = [
@@ -184,8 +184,6 @@ const Homepage: React.FC = () => {
     </div>
   );
 };
-
-export default Homepage;
 
 function ImageMarquee({
   imgs,

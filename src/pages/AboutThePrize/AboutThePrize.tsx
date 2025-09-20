@@ -1,8 +1,8 @@
 import React from "react";
 import { Language, useLanguage } from "../../context";
-import SectionBanner from "../../components/SectionBanner";
+import { SectionBanner } from "../../components";
 
-const AboutThePrize: React.FC = () => {
+export const AboutThePrize: React.FC = () => {
   const { lang } = useLanguage();
 
   return (
@@ -120,5 +120,3 @@ const AboutThePrize: React.FC = () => {
     </div>
   );
 };
-
-export default AboutThePrize;

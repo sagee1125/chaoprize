@@ -2,7 +2,7 @@ import React from "react";
 import Nav from "../Nav/Nav";
 import { Language, useLanguage } from "../../context";
 
-const Header: React.FC = () => {
+export const Header: React.FC = () => {
   const { lang, switchLanguage } = useLanguage();
 
   const trilingualSwitch: Array<{ lang: Language; label: string }> = [
@@ -87,5 +87,3 @@ const Header: React.FC = () => {
     </header>
   );
 };
-
-export default Header;
