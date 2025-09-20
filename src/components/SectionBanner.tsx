@@ -12,7 +12,7 @@ export default function SectionBanner({
 }: SectionBannerProps) {
   return (
     <section
-      className={`w-screen h-[40vh] relative overflow-hidden ${className}`}
+      className={`w-screen h-[10vh ]md:h-[20vh] lg:h-[40vh] relative overflow-hidden ${className}`}
     >
       <img
         src="/banner/section_banner.png"
@@ -21,8 +21,8 @@ export default function SectionBanner({
       />
 
       <div className="relative h-full flex items-start">
-        <div className="px-[12vh] pt-[10vh] !font-light">
-          <h1 className="text-dark !font-en text-2xl md:text-[56px] leading-tight">
+        <div className="p-[2vh] md:px-[12vh] md:py-[8vh] !font-extralight">
+          <h1 className="text-dark !font-en text-2xl mt-[2vh] md:text-[56px] leading-tight">
             {title}
           </h1>
         </div>
