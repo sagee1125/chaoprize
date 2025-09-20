@@ -10,14 +10,14 @@ import {
   ThePatron,
   ContactUs,
   Home,
-  Laureates,
   Nomination,
+  Laureates,
   ImportantDates,
+  Publications,
   News,
 } from "./pages";
 
 const Gallery = () => <SectionBanner title="GALLERY" />;
-const Publications = () => <SectionBanner title="PUBLICATIONS" />;
 
 function App() {
   return (

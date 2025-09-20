@@ -7,4 +7,5 @@ export * from "./ThePatron";
 export * from "./Laureates";
 export * from "./Nomination";
 export * from "./ImportantDates";
+export * from "./Publications";
 export * from "./News";
