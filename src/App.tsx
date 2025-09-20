@@ -11,12 +11,11 @@ import {
   ContactUs,
   Home,
   Laureates,
+  Nomination,
+  ImportantDates,
+  News,
 } from "./pages";
 
-const Nomination = () => <SectionBanner title="NOMINATION" />;
-const ImportantDates = () => <SectionBanner title="IMPORTANT DATES" />;
-
-const News = () => <SectionBanner title="NEWS" />;
 const Gallery = () => <SectionBanner title="GALLERY" />;
 const Publications = () => <SectionBanner title="PUBLICATIONS" />;
 

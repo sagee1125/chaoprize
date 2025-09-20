@@ -5,3 +5,6 @@ export * from "./TheOrganiser";
 export * from "./Awards";
 export * from "./ThePatron";
 export * from "./Laureates";
+export * from "./Nomination";
+export * from "./ImportantDates";
+export * from "./News";

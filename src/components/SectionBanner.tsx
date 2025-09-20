@@ -12,7 +12,7 @@ export const SectionBanner: React.FunctionComponent<SectionBannerProps> = (
   const { title, className } = props;
   return (
     <section
-      className={`w-screen h-[10vh ]md:h-[20vh] lg:h-[40vh] relative overflow-hidden ${className}`}
+      className={`w-screen h-[10vh] md:h-[20vh] lg:h-[40vh] relative overflow-hidden ${className}`}
     >
       <img
         src="/banner/section_banner.png"

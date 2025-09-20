@@ -162,6 +162,7 @@ export const Home: React.FC = () => {
                 <a
                   href={item.viewWebsite}
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-block bg-[#b68b47] hover:bg-main text-white 
                         py-1 px-3 my-2 md:my-4 md:text-base md:px-6 md:py-2
                         transition-colors tracking-wider"

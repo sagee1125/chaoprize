@@ -38,6 +38,7 @@ export const ThePatron: React.FC = () => {
               <a
                 href="https://www.iread.org.cn/Home/IndexEn/index.html"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="inline-block bg-[#b68b47] hover:bg-main text-white px-3 py-2 font-medium transition-colors tracking-wider"
               >
                 Learn More
