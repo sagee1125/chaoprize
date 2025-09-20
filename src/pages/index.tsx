@@ -4,3 +4,4 @@ export * from "./ContactUs";
 export * from "./TheOrganiser";
 export * from "./Awards";
 export * from "./ThePatron";
+export * from "./Laureates";

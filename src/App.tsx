@@ -10,9 +10,8 @@ import {
   ThePatron,
   ContactUs,
   Home,
+  Laureates,
 } from "./pages";
-
-const Laureates = () => <SectionBanner title="LAUREATES" />;
 
 const Nomination = () => <SectionBanner title="NOMINATION" />;
 const ImportantDates = () => <SectionBanner title="IMPORTANT DATES" />;
