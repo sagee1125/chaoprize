@@ -3,11 +3,12 @@ import "./App.css";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home/Home";
 import SectionBanner from "./components/SectionBanner";
 import { LanguageProvider } from "./context";
+import Home from "./pages/Home/Home";
+import AboutThePrize from "./pages/AboutThePrize/AboutThePrize";
+import ContactUs from "./pages/ContactUs/ContactUs";
 
-const AboutThePrize = () => <SectionBanner title="ABOUT THE PRIZE" />;
 const TheOrganiser = () => <SectionBanner title="THE ORGANISER" />;
 const ThePatron = () => <SectionBanner title="THE PATRON" />;
 
@@ -20,8 +21,6 @@ const ImportantDates = () => <SectionBanner title="IMPORTANT DATES" />;
 const News = () => <SectionBanner title="NEWS" />;
 const Gallery = () => <SectionBanner title="GALLERY" />;
 const Publications = () => <SectionBanner title="PUBLICATIONS" />;
-
-const ContactUs = () => <SectionBanner title="CONTACT US" />;
 
 function App() {
   return (

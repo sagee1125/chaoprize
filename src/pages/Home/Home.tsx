@@ -60,7 +60,7 @@ const Homepage: React.FC = () => {
   ];
   return (
     <div
-      className={`flex flex-col items-center font-en w-full max-w-screen overflow-x-hidden pb-12
+      className={`flex flex-col items-center w-full max-w-screen overflow-x-hidden pb-12
                     ${lang === Language.EN ? "font-en" : "font-zh"}`}
     >
       <Banner />
