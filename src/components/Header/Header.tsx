@@ -1,10 +1,31 @@
-import React, { useState } from "react";
-import Nav from "./Nav";
+import React from "react";
+import Nav from "../Nav";
+import { Language, useLanguage } from "../../context";
 
 const Header: React.FC = () => {
+  const { lang, switchLanguage } = useLanguage();
+
+  const trilingualSwitch: Array<{ lang: Language; label: string }> = [
+    {
+      lang: Language.EN,
+      label: "EN",
+    },
+    {
+      lang: Language.TC,
+      label: "繁",
+    },
+    {
+      lang: Language.SC,
+      label: "简",
+    },
+  ];
   return (
-    <header className="bg-white text-white shadow-md h-[180px]">
-      <div className="w-full h-full px-4 lg:px-14 my-auto py-7">
+    <header
+      className={`bg-white text-white shadow-md h-[180px] ${
+        lang === Language.EN ? "font-en" : "font-zh"
+      }`}
+    >
+      <div className="w-full h-full px-4 lg:px-14 my-auto pt-7 pb-3">
         <div className="flex h-full flex-row items-center">
           {/* Logo */}
           <div>
@@ -46,7 +67,20 @@ const Header: React.FC = () => {
                 />
               </a>
             </div>
-            <Nav />
+            <div className="flex">
+              <Nav />
+              <div className="flex gap-5">
+                {trilingualSwitch.map((item) => (
+                  <button
+                    key={item.lang}
+                    onClick={() => switchLanguage(item.lang)}
+                    className={lang === item.lang ? "text-second" : "text-main"}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
