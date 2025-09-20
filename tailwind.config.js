@@ -16,6 +16,7 @@ module.exports = {
         light: "#E5B66B",
         dark: "#57301D",
         bcg: "#FDECC2",
+        lightBgc: "#FFFBF0",
       },
       fontFamily: {
         en: ["Baskerville", "serif"],
