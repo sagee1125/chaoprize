@@ -68,7 +68,7 @@ export const MediaContainer: React.FunctionComponent<MediaContainerProps> = (
 
         {/* 下方子元素，高度與上方相同 */}
         <div
-          className="w-full relative border-b border-r border-l border-light/70 text-[8px] md:text-lg"
+          className="w-full relative border-b border-r border-l border-main/20 text-[8px] md:text-lg"
           style={{ paddingTop: "50%" }}
         >
           <div className="absolute top-0 left-0 w-full h-full items-start justify-start p-1 md:p-4">
@@ -167,7 +167,7 @@ export const MediaContainer: React.FunctionComponent<MediaContainerProps> = (
 
           {/* 下方子元素，高度與上方相同 */}
           <div
-            className="w-full relative border-b border-r border-l border-light/70 text-[8px] md:text-lg"
+            className="w-full relative border-b border-r border-l border-main/20 text-[8px] md:text-lg"
             style={{ paddingTop: "50%" }}
           >
             <div className="absolute top-0 left-0 w-full h-full flex flex-col items-start justify-between p-1 md:p-4">
@@ -231,7 +231,7 @@ export const MediaContainer: React.FunctionComponent<MediaContainerProps> = (
 
           {/* 下方子元素，高度與上方相同 */}
           <div
-            className="w-full relative border-b border-r border-l border-light/70 text-[8px] md:text-lg"
+            className="w-full relative border-b border-r border-l border-main/20 text-[8px] md:text-lg"
             style={{ paddingTop: "50%" }}
           >
             <div className="absolute top-0 left-0 w-full h-full items-start flex flex-col justify-between p-1 md:p-4">
@@ -283,7 +283,7 @@ export const MediaContainer: React.FunctionComponent<MediaContainerProps> = (
 
       {/* 下方子元素，高度與上方相同 */}
       <div
-        className="w-full relative border-b border-r border-l border-light/70 text-[8px] md:text-lg"
+        className="w-full relative border-b border-r border-l border-main/20 text-[8px] md:text-lg"
         style={{ paddingTop: "50%" }}
       >
         <div className="absolute top-0 left-0 w-full h-full items-start justify-start p-1 md:p-4">
