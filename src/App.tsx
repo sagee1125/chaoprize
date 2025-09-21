@@ -17,6 +17,7 @@ import {
   News,
   Gallery,
   GalleryLaunchCeremony,
+  AwardPresentationCeremony,
 } from "./pages";
 
 function App() {
@@ -52,7 +53,10 @@ function App() {
                 path="/gallery-launchceremony"
                 element={<GalleryLaunchCeremony />}
               />
-
+              <Route
+                path="/gallery-awardpresentationceremony"
+                element={<AwardPresentationCeremony />}
+              />
               <Route path="/publications" element={<Publications />} />
 
               {/* CONTACT US */}

@@ -4,6 +4,7 @@ export const enum MediaType {
   Pdf = "PDF",
   Album = "Album",
   Photo = "Launch Ceremony",
+  Award = "Award Presentation Ceremony",
 }
 
 export const newIcon = (

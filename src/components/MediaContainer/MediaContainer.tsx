@@ -48,6 +48,7 @@ export const MediaContainer: React.FunctionComponent<MediaContainerProps> = (
     [MediaType.Video]: videoIcon,
     [MediaType.Album]: albumIcon,
     [MediaType.Photo]: photoIcon,
+    [MediaType.Award]: photoIcon,
   };
   const icon = iconMap[type];
 
@@ -279,7 +280,7 @@ export const MediaContainer: React.FunctionComponent<MediaContainerProps> = (
       </>
     );
 
-  if (type === MediaType.Photo)
+  if ([MediaType.Photo, MediaType.Award].includes(type))
     return (
       <>
         <div className="w-full flex flex-col space-y-0">

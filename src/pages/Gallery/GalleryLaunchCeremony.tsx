@@ -60,7 +60,7 @@ export const GalleryLaunchCeremony: React.FC = () => {
             <MediaContainer
               key={i}
               thumbnail={item.image}
-              title={"Launch Ceremony"}
+              title={""}
               type={MediaType.Photo}
             />
           ))}
