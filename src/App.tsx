@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { Header, Footer, SectionBanner } from "./components";
+import { Header, Footer, SectionBanner, TitleManager } from "./components";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "./context";
 import {
@@ -23,6 +23,7 @@ function App() {
   return (
     <Router>
       <LanguageProvider>
+        <TitleManager />
         <div className="flex flex-col min-h-screen">
           {/* Header */}
           <Header />

@@ -38,7 +38,7 @@ export const sitemap = [
   },
 ];
 
-type TranslationKeys =
+export type siteMapTranslationKeys =
   | "introduction"
   | "aboutPrize"
   | "organiser"
@@ -52,11 +52,12 @@ type TranslationKeys =
   | "news"
   | "gallery"
   | "publications"
-  | "contactUs";
+  | "contactUs"
+  | "home";
 
 export const sitemapTrilingualText: Record<
   Language,
-  Record<TranslationKeys, string>
+  Record<siteMapTranslationKeys, string>
 > = {
   [Language.EN]: {
     introduction: "INTRODUCTION",
@@ -73,6 +74,7 @@ export const sitemapTrilingualText: Record<
     gallery: "GALLERY",
     publications: "PUBLICATIONS",
     contactUs: "CONTACT US",
+    home: "Home",
   },
   [Language.SC]: {
     introduction: "介绍",
@@ -89,6 +91,7 @@ export const sitemapTrilingualText: Record<
     gallery: "媒体库",
     publications: "出版物",
     contactUs: "联络我们",
+    home: "主页",
   },
   [Language.TC]: {
     introduction: "介紹",
@@ -105,5 +108,63 @@ export const sitemapTrilingualText: Record<
     gallery: "媒體庫",
     publications: "出版物",
     contactUs: "聯絡我們",
+    home: "主頁",
+  },
+};
+
+export const titleTrilingualText: Record<
+  Language,
+  Record<siteMapTranslationKeys, string>
+> = {
+  [Language.EN]: {
+    introduction: "Introduction",
+    aboutPrize: "About the prize",
+    organiser: "The organiser",
+    patron: "The patron",
+    awardsLaureates: "Awards & laureates",
+    awards: "Awards",
+    laureates: "Laureates",
+    nomination: "Nomination",
+    importantDates: "Important dates",
+    media: "Media",
+    news: "News",
+    gallery: "Gallery",
+    publications: "Publications",
+    contactUs: "Contact us",
+    home: "Home",
+  },
+  [Language.SC]: {
+    introduction: "介绍",
+    aboutPrize: "关于奖项",
+    organiser: "主办单位",
+    patron: "赞助人",
+    awardsLaureates: "奖项与得奖者",
+    awards: "奖项",
+    laureates: "得奖者",
+    nomination: "提名",
+    importantDates: "重要日期",
+    media: "媒体",
+    news: "最新消息",
+    gallery: "媒体库",
+    publications: "出版物",
+    contactUs: "联络我们",
+    home: "主页",
+  },
+  [Language.TC]: {
+    introduction: "介紹",
+    aboutPrize: "關於獎項",
+    organiser: "主辦單位",
+    patron: "贊助人",
+    awardsLaureates: "獎項與得獎者",
+    awards: "獎項",
+    laureates: "得獎者",
+    nomination: "提名",
+    importantDates: "重要日期",
+    media: "媒體",
+    news: "最新消息",
+    gallery: "媒體庫",
+    publications: "出版物",
+    contactUs: "聯絡我們",
+    home: "主頁",
   },
 };
