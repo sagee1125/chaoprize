@@ -10,7 +10,7 @@ export const News: React.FC = () => {
   const newsItems = [
     {
       title:
-        "PolyU Presents Lifetime Achievement Award to Two Distinguished Scholars at the Inaugural Ceremony for the Yuen Ren Chao Prize in Language Sciences",
+        "PolyU Presents Lifetime Achievement Award to Two Distinguished Scholars ...", //  at the Inaugural Ceremony for the Yuen Ren Chao Prize in Language Sciences
       image:
         "/images/news/polyu-presents-lifetime-achievement-award-to-two-distinguished-scholars.avif",
       link: "https://www.polyu.edu.hk/fh/news-and-events/news/2024/polyu-presents-lifetime-achievement-award-to-two-distinguished-scholars",
@@ -31,7 +31,7 @@ export const News: React.FC = () => {
     },
     {
       title:
-        "PolyU Launches Yuen Ren Chao Prize in Language Sciences Recognising Outstanding Scholars in the Field",
+        "PolyU Launches Yuen Ren Chao Prize in Language Sciences Recognising... ", // Outstanding Scholars in the Field
       image:
         "/images/news/polyu-launches-yuen-ren-chao-prize-in-language-sciences-recognising-outstanding-scholars.avif",
       link: "https://www.polyu.edu.hk/fh/news-and-events/news/2023/polyu-launches-yuen-ren-chao-prize-in-language-sciences-recognising-outstanding-scholars/",

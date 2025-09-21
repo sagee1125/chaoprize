@@ -71,29 +71,34 @@ export const MediaContainer: React.FunctionComponent<MediaContainerProps> = (
           className="w-full relative border-b border-r border-l border-main/20 text-[8px] md:text-lg"
           style={{ paddingTop: "50%" }}
         >
-          <div className="absolute top-0 left-0 w-full h-full items-start justify-start p-1 md:p-4">
-            <div className="flex items-center gap-1 md:gap-3  text-second">
-              {icon}
-              {type}
+          <div className="absolute top-0 left-0 w-full h-full flex flex-col items-start justify-between p-1 md:p-4">
+            <div className="overflow-hidden">
+              <div className="flex items-center gap-1 md:gap-3  text-second">
+                {icon}
+                {type}
+              </div>
+
+              <p
+                className={`block overflow-hidden ${
+                  description
+                    ? "line-clamp-1 md:pt-2 md:pb-1"
+                    : "line-clamp-1 md:line-clamp-2 md:py-2"
+                }`}
+              >
+                {title}
+              </p>
+              {description && (
+                <p className="line-clamp-1 pb-2 hidden md:block">
+                  {description}
+                </p>
+              )}
             </div>
-            <p
-              className={`${
-                description
-                  ? "line-clamp-1 md:pt-2 md:pb-1"
-                  : "line-clamp-1 md:line-clamp-2 md:py-2"
-              }`}
-            >
-              {title}
-            </p>
-            {description && (
-              <p className="line-clamp-1 pb-2 hidden md:block">{description}</p>
-            )}
             <a
               href={link}
               {...(target === "_blank"
                 ? { target: "_blank", rel: "noopener noreferrer" }
                 : { target: "_self" })}
-              className="px-3 py-1 md:px-8 md:py-2 
+              className="px-3 py-1 md:px-8 
                           inline-block border border-main text-main hover:bg-main 
                           hover:text-white font-medium transition-colors tracking-wider"
             >
@@ -183,7 +188,7 @@ export const MediaContainer: React.FunctionComponent<MediaContainerProps> = (
               </div>
               <button
                 onClick={handleOpenVideoModal}
-                className="px-3 py-1 md:px-8 md:py-2 
+                className="px-3 py-1 md:px-8  
                           inline-block border border-main text-main hover:bg-main 
                           hover:text-white font-medium transition-colors tracking-wider"
               >
@@ -248,7 +253,7 @@ export const MediaContainer: React.FunctionComponent<MediaContainerProps> = (
                 {...(target === "_blank"
                   ? { target: "_blank", rel: "noopener noreferrer" }
                   : { target: "_self" })}
-                className="px-3 py-1 md:px-8 md:py-2  flex-end
+                className="px-3 py-1 md:px-8 
                           inline-block border border-main text-main hover:bg-main 
                           hover:text-white font-medium transition-colors tracking-wider"
               >
@@ -297,7 +302,7 @@ export const MediaContainer: React.FunctionComponent<MediaContainerProps> = (
             {...(target === "_blank"
               ? { target: "_blank", rel: "noopener noreferrer" }
               : { target: "_self" })}
-            className="px-3 py-1 md:px-8 md:py-2 
+            className="px-3 py-1 md:px-8  
                           inline-block border border-main text-main hover:bg-main 
                           hover:text-white font-medium transition-colors tracking-wider"
           >
