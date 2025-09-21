@@ -4,7 +4,7 @@ import { SectionBanner } from "../../components";
 import { MediaContainer } from "../../components/MediaContainer";
 import { MediaType } from "../../components/MediaContainer/const";
 
-export const Publications: React.FC = () => {
+export const Gallery: React.FC = () => {
   const { lang } = useLanguage();
 
   const pubs = [
@@ -31,7 +31,7 @@ export const Publications: React.FC = () => {
               title={item.title}
               type={MediaType.Pdf}
               link={item.link}
-              target="_blank"
+              target="_self"
             />
           ))}
         </div>

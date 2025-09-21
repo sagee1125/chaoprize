@@ -9,3 +9,4 @@ export * from "./Nomination";
 export * from "./ImportantDates";
 export * from "./Publications";
 export * from "./News";
+export * from "./Gallery";

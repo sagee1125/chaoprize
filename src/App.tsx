@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
-import { Header, Footer, SectionBanner, TitleManager } from "./components";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Header, Footer, TitleManager } from "./components";
 import { LanguageProvider } from "./context";
 import {
   AboutThePrize,
@@ -15,9 +15,8 @@ import {
   ImportantDates,
   Publications,
   News,
+  Gallery,
 } from "./pages";
-
-const Gallery = () => <SectionBanner title="GALLERY" />;
 
 function App() {
   return (

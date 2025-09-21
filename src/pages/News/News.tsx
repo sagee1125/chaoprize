@@ -44,6 +44,54 @@ export const News: React.FC = () => {
     },
   ];
 
+  const influenceItems = [
+    {
+      type: MediaType.Video,
+      title: "Professor Ovid Jyh-Lang Tzeng",
+      desc: "Institute of Linguistics...",
+      image: "/images/news/Professor-Ovid-Jyh-Lang-Tzeng.avif",
+      videoSrc: "/images/news/Professor-Ovid-Jyh-Lang-Tzeng.mp4",
+    },
+    {
+      type: MediaType.Pdf,
+      title: "Professor Chen Zhongmin",
+      desc: "Institute of Linguistics, Academia Sinica",
+      image: "/images/news/Prof-Li-Paul-Jen-kuei.avif",
+      link: "https://www.polyu.edu.hk/fh/docdrive/ScholarSharingProf.PaulLi.pdf",
+      target: "_blank" as "_blank" | "_self",
+    },
+
+    {
+      type: MediaType.Video,
+      title: "Professor Ovid Jyh-Lang Tzeng",
+      desc: "Fudan University",
+      image: "/images/news/Professor-Chen-Zhongmin.avif",
+      videoSrc: "/images/news/Professor-Chen-Zhongmin.mp4",
+    },
+
+    {
+      type: MediaType.Video,
+      title: "Professor Shi Feng",
+      desc: "Nankai University",
+      image: "/images/news/Professor-Shi-Feng.avif",
+      videoSrc: "/images/news/Professor-Shi-Feng.mp4",
+    },
+    {
+      type: MediaType.Video,
+      title: "Dr Peter Zhou",
+      desc: "University of California, Berkeley",
+      image: "/images/news/Dr-Peter-Zhou.avif",
+      videoSrc: "/images/news/Dr-Peter-Zhou.mp4",
+    },
+    {
+      type: MediaType.Video,
+      title: "Dr Cheung Kwan Hin",
+      desc: "Former Head of Department of ...",
+      image: "/images/news/Dr-Cheung-Kwan-Hin.avif",
+      videoSrc: "/images/news/Dr-Cheung-Kwan-Hin.mp4",
+    },
+  ];
+
   return (
     <div
       className={`w-full max-w-screen overflow-x-hidden pb-12 bg-white
@@ -59,13 +107,28 @@ export const News: React.FC = () => {
               title={item.title}
               type={MediaType.News}
               link={item.link}
+              target={"_blank"}
             />
           ))}
         </div>
 
-        {/* <div>
-          <p className="text-lg md:text-3xl">Professor Chao's Influence</p>
-        </div> */}
+        <div>
+          <p className="text-lg md:text-3xl pb-6">Professor Chao's Influence</p>
+          <div className="grid grid-cols-3 gap-6">
+            {influenceItems.map((item, i) => (
+              <MediaContainer
+                key={i}
+                thumbnail={item.image}
+                title={item.title}
+                description={item.desc}
+                type={item.type}
+                link={item.link}
+                target={item.target}
+                videoSrc={item.videoSrc}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
