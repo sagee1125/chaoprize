@@ -11,7 +11,7 @@ export const Publications: React.FC = () => {
     {
       title: "The Chao Prize 2024 Award Presentation Brochure",
       image:
-        "/images/publications/The -Chao-Prize-2024-Award-Presentation-Brochure.avif",
+        "/images/publications/The-Chao-Prize-2024-Award-Presentation-Brochure.avif",
       link: "https://www.chaoprize.org/_files/ugd/e1a3ec_d7a9055ecd764ef19247e648136d0600.pdf",
     },
   ];
