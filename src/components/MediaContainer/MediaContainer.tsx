@@ -1,7 +1,15 @@
 import React, { useState } from "react";
-import { albumIcon, MediaType, newIcon, pdfIcon, videoIcon } from "./const";
+import {
+  albumIcon,
+  MediaType,
+  newIcon,
+  pdfIcon,
+  photoIcon,
+  videoIcon,
+} from "./const";
 import { VideoModal } from "./VideoModal";
 import { CirclePlay } from "lucide-react";
+import { PhotoModal } from "./PhotoModal";
 
 interface MediaContainerProps {
   type: MediaType;
@@ -29,6 +37,8 @@ export const MediaContainer: React.FunctionComponent<MediaContainerProps> = (
   } = props;
 
   const [openVideoModal, setOpenVideoModal] = useState(false);
+  const [openPhotoModal, setOpenPhotoModal] = useState(false);
+
   const [isPlaying, setIsPlaying] = useState(false);
   // const [hover, setHover] = useState(false);
 
@@ -37,11 +47,15 @@ export const MediaContainer: React.FunctionComponent<MediaContainerProps> = (
     [MediaType.Pdf]: pdfIcon,
     [MediaType.Video]: videoIcon,
     [MediaType.Album]: albumIcon,
+    [MediaType.Photo]: photoIcon,
   };
   const icon = iconMap[type];
 
   const handleOpenVideoModal = (): void => {
     setOpenVideoModal(true);
+  };
+  const handleOpenPhotoModal = (): void => {
+    setOpenPhotoModal(true);
   };
   if ([MediaType.News, MediaType.Pdf].includes(type))
     return (
@@ -264,6 +278,61 @@ export const MediaContainer: React.FunctionComponent<MediaContainerProps> = (
         </div>
       </>
     );
+
+  if (type === MediaType.Photo)
+    return (
+      <>
+        <div className="w-full flex flex-col space-y-0">
+          {/* 上方圖片 */}
+          <div
+            className="w-full relative overflow-hidden border border-black/20"
+            style={{ paddingTop: "50%" }}
+          >
+            <img
+              src={thumbnail}
+              alt=""
+              role="button"
+              onClick={handleOpenPhotoModal}
+              className="absolute top-0 left-0 w-full h-full object-cover
+                         transition-transform duration-[600ms] ease-in-out hover:scale-105"
+            />
+          </div>
+
+          {/* 下方子元素，高度與上方相同 */}
+          <div
+            className="w-full relative border-b border-r border-l border-main/20 text-[8px] md:text-base"
+            style={{ paddingTop: "25%" }}
+          >
+            <div className="absolute top-0 left-0 w-full h-full flex flex-col items-start justify-between p-1 md:px-4 md:pb-4">
+              <div className="flex items-center gap-1 md:gap-3  text-second">
+                {icon}
+                {type}
+              </div>
+
+              <button
+                onClick={handleOpenPhotoModal}
+                className="px-3 py-1 md:px-8  
+                          inline-block border border-main text-main hover:bg-main 
+                          hover:text-white font-medium transition-colors tracking-wider"
+              >
+                View
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {thumbnail && (
+          <PhotoModal
+            src={thumbnail}
+            open={openPhotoModal}
+            onClose={() => {
+              setOpenPhotoModal(false);
+            }}
+          />
+        )}
+      </>
+    );
+
   return (
     <div className="w-full flex flex-col space-y-0">
       {/* 上方圖片 */}

@@ -16,6 +16,7 @@ import {
   Publications,
   News,
   Gallery,
+  GalleryLaunchCeremony,
 } from "./pages";
 
 function App() {
@@ -47,6 +48,11 @@ function App() {
               {/* MEDIA */}
               <Route path="/news" element={<News />} />
               <Route path="/gallery" element={<Gallery />} />
+              <Route
+                path="/gallery-launchceremony"
+                element={<GalleryLaunchCeremony />}
+              />
+
               <Route path="/publications" element={<Publications />} />
 
               {/* CONTACT US */}

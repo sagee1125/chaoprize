@@ -95,8 +95,8 @@ export const Footer: React.FC = () => {
           </div>
           <div className="text-main w-full py-6">
             <div className="mx-auto w-[1200px] w-full grid grid-cols-1 sm:grid-cols-5 gap-8">
-              {sitemap.map((col) => (
-                <div key={col.title} className="flex flex-col items-start">
+              {sitemap.map((col, i) => (
+                <div key={i} className="flex flex-col items-start">
                   {/* 列頭 */}
                   <h3 className="mb-2">{col.title}</h3>
                   {/* 分界線 */}
@@ -118,10 +118,10 @@ export const Footer: React.FC = () => {
 
           <div className="text-main w-full py-2 space-y-2">
             <div className="mx-auto w-[1200px] w-full flex gap-10 text-base tracking-tight">
-              {otherInfo.map((info) => {
+              {otherInfo.map((info, i) => {
                 if (info.href)
                   return (
-                    <a href={info.href} target={info.target}>
+                    <a href={info.href} key={i} target={info.target}>
                       <span>{info.label}</span>
                     </a>
                   );
