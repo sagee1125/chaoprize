@@ -2,9 +2,17 @@ import React from "react";
 import Banner from "../../components/Banner";
 import { Language, useLanguage } from "../../context";
 import { importantDatesIcon, nominationIcon } from "./const";
+import {
+  aboutPrizeTrilingualText,
+  awardsTrilingualText,
+  mediaTrilingualText,
+} from "./i18n";
 
 export const Home: React.FC = () => {
   const { lang } = useLanguage();
+  const aboutPrizeTexts = aboutPrizeTrilingualText[lang];
+  const awardsTexts = awardsTrilingualText[lang];
+  const mediaText = mediaTrilingualText[lang];
 
   const marqueeImgs = [
     "/banner/5-JCR67431.jpg",
@@ -22,12 +30,12 @@ export const Home: React.FC = () => {
 
   const nominationSection = [
     {
-      label: "Nomination",
+      label: awardsTexts.nomination,
       icon: nominationIcon,
       href: "/nomination",
     },
     {
-      label: "Important Dates",
+      label: awardsTexts.importantDates,
       icon: importantDatesIcon,
       href: "/importantdates",
     },
@@ -35,26 +43,26 @@ export const Home: React.FC = () => {
 
   const mediaSection = [
     {
-      cate: "NEWS",
+      cate: mediaText.newsTitle,
       img: "/images/homepage/ChaoPrize_Result_1st_r3c.avif",
-      label: "First Yuen Ren Chao Prize in Language",
-      desc: "Science Announced",
+      label: mediaText.newsSubtitle,
+      desc: mediaText.newsSubtitleLeft,
       href: "/news",
       viewWebsite:
         "https://www.polyu.edu.hk/fh/news-and-events/news/2024/the-first-yuen-ren-chao-prize-in-language-sciences-announced/?sc_lang=en",
     },
     {
-      cate: "GALLERY",
+      cate: mediaText.galleryTitle,
       img: "/images/homepage/HEI_9822.avif",
-      label: "Chao Prize Presentation",
-      desc: "Ceremony",
+      label: mediaText.gallerySubtitle,
+      desc: mediaText.gallerySubtitleLeft,
       href: "/gallery",
     },
     {
-      cate: "PUBLICATIONS",
+      cate: mediaText.publicationsTitle,
       img: "/images/homepage/ChaoPrize_2024.avif",
-      label: "The Chao Prize 2024 Award Presentation",
-      desc: "Brochure",
+      label: mediaText.publicationsSubtitle,
+      desc: mediaText.publicationsSubtitleLeft,
       href: "https://www.chaoprize.org/_files/ugd/e1a3ec_d7a9055ecd764ef19247e648136d0600.pdf",
     },
   ];
@@ -66,22 +74,19 @@ export const Home: React.FC = () => {
       <Banner />
 
       <div className="w-full mx-auto text-center text-main py-12 px-4 !font-thin">
-        <p className="text-5xl my-10 text-dark">ABOUT THE PRIZE</p>
-        <p className="mb-6 leading-relaxed text-lg">
-          The Yuen Ren Chao Prize in Language Science, organised by
-          <br />
-          The Hong Kong Polytechnic University (PolyU), is an international
-          <br />
-          award that honours scholars and researchers who have made
-          <br />
-          distinguished contributions to language science.
-        </p>
+        <a href="/abouttheprize" target="_self">
+          <p className="text-5xl my-10 text-dark">{aboutPrizeTexts.title}</p>
+        </a>
+        <p
+          className="mb-6 leading-relaxed text-lg"
+          dangerouslySetInnerHTML={{ __html: aboutPrizeTexts.description }}
+        />
         {/* Learn More button */}
         <a
           href="/abouttheprize"
           className="inline-block bg-[#b68b47] hover:bg-main text-white px-6 py-3 font-medium transition-colors tracking-wider"
         >
-          Learn More
+          {aboutPrizeTexts.button}
         </a>
       </div>
 
@@ -90,10 +95,9 @@ export const Home: React.FC = () => {
       </div>
 
       <div className="w-full mx-auto text-center text-main py-12 px-4 !font-thin">
-        <p className="text-5xl my-10 text-dark">AWARDS & LAUREATES</p>
+        <p className="text-5xl my-10 text-dark">{awardsTexts.title}</p>
         <p className="mb-10 leading-relaxed text-lg">
-          Two awards will be given biennially, namely Lifetime Achievement Award
-          and Early Career Contribution Award.
+          {awardsTexts.description}
         </p>
         <div className="flex flex-col md:flex-row justify-center items-center gap-8">
           {awardsLaureatesImages.map((src, idx) => (
@@ -114,7 +118,9 @@ export const Home: React.FC = () => {
       </div>
 
       <div className="w-full  mx-auto text-center text-main py-12 px-4 !font-thin">
-        <p className="text-5xl my-10 text-dark">NOMINATION</p>
+        <p className="text-5xl my-10 text-dark">
+          {awardsTexts.nominationUpperCase}
+        </p>
         <div className="flex flex-col md:flex-row justify-center items-center gap-8">
           {nominationSection.map((item, idx) => (
             <div
@@ -123,13 +129,19 @@ export const Home: React.FC = () => {
                         overflow-hidden flex flex-col justify-center items-center gap-4"
             >
               <div>{item.icon}</div>
-              <p className="text-lg md:text-4xl">{item.label}</p>
+              <a
+                className="text-lg md:text-4xl"
+                href={item.href}
+                target="_self"
+              >
+                {item.label}
+              </a>
               <a
                 href={item.href}
                 target="_self"
                 className="inline-block bg-[#b68b47] hover:bg-main text-white px-6 py-3 font-medium transition-colors tracking-wider"
               >
-                Learn More
+                {aboutPrizeTexts.button}
               </a>
             </div>
           ))}
@@ -137,7 +149,7 @@ export const Home: React.FC = () => {
       </div>
 
       <div className="mx-8 md:px-[240px] w-full mx-auto text-center text-main py-12 px-4 !font-thin">
-        <p className="text-5xl my-10 text-dark">MEDIA</p>
+        <p className="text-5xl my-10 text-dark">{mediaText.title}</p>
         <div className="w-full grid grid-cols-3 gap-4 md:gap-8">
           {mediaSection.map((item, idx) => (
             <div
@@ -167,7 +179,7 @@ export const Home: React.FC = () => {
                         py-1 px-3 my-2 md:my-4 md:text-base md:px-6 md:py-2
                         transition-colors tracking-wider"
                 >
-                  View
+                  {mediaText.view}
                 </a>
               ) : (
                 <div
@@ -175,7 +187,7 @@ export const Home: React.FC = () => {
                         py-1 px-3 my-2 md:my-4 md:text-base md:px-6 md:py-2
                         transition-colors tracking-wider"
                 >
-                  View
+                  {mediaText.view}{" "}
                 </div>
               )}
             </div>
