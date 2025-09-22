@@ -35,7 +35,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
         <video
           ref={videoRef}
           src={src}
-          className="w-full h-auto md:w-auto md:h-full cursor-pointer"
+          className="w-full md:w-auto md:h-full cursor-pointer"
           controls
           autoPlay
           onClick={handlePlayClick}

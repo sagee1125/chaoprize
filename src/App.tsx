@@ -25,7 +25,7 @@ function App() {
     <Router>
       <LanguageProvider>
         <TitleManager />
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen w-screen">
           {/* Header */}
           <Header />
 
