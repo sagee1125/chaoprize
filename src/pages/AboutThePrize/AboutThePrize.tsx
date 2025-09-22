@@ -28,43 +28,25 @@ export const AboutThePrize: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-[1fr,3fr]">
-          <div className="text-lg md:text-3xl">Aims</div>
+          <div className="text-lg md:text-3xl">{aboutPrizeTexts.aim}</div>
           <div className="pl-5">
             <ul className="list-disc space-y-1">
-              <li>To commemorate the legacy of Professor Yuen Ren Chao</li>
-              <li>
-                To recognise distinguished contributions made by researchers in
-                the field
-              </li>
-              <li>
-                To inspire future generations of scholars and students in
-                language science research
-              </li>
+              <li>{aboutPrizeTexts.commemorate}</li>
+              <li>{aboutPrizeTexts.recognise}</li>
+              <li>{aboutPrizeTexts.inspireFuture}</li>
             </ul>
           </div>
         </div>
 
         <div className="grid grid-cols-[1fr,3fr]">
-          <div className="text-lg md:text-3xl">
-            Language
-            <br />
-            Science
-          </div>
-          <div>
-            Language is a hallmark of human evolution and an indispensable tool
-            for human communication. It facilitates the accumulation of
-            knowledge and wisdom across the millennia leading to the
-            civilisations we have today. Language scientists examine languages
-            from multiple perspectives using interdisciplinary scientific
-            approaches. Their scientific findings can be applied in many areas,
-            from enhancing communication to treating speech disorders. During
-            the past few decades, language science research has experienced
-            rapid growth in the context of modern scientific enterprises. With
-            the advent of language technologies and pervasive digital
-            applications, tremendous strides have been made, new frontiers have
-            been established, and more exciting opportunities have emerged for
-            language scientists.
-          </div>
+          <div
+            className="text-lg md:text-3xl"
+            dangerouslySetInnerHTML={{
+              __html: aboutPrizeTexts.languageScience,
+            }}
+          />
+
+          <div>{aboutPrizeTexts.languageDsc}</div>
         </div>
 
         <div>
@@ -77,12 +59,8 @@ export const AboutThePrize: React.FC = () => {
           />
         </div>
         <div className="grid grid-cols-[1fr,3fr]">
-          <div className="text-lg md:text-3xl">The Logo</div>
-          <div>
-            The free flowing ribbon-liked “C” represents the continuation and
-            evolution of Chao’s wisdom in Language Science. Red and gold suggest
-            noble and devotion.
-          </div>
+          <div className="text-lg md:text-3xl">{aboutPrizeTexts.logo}</div>
+          <div>{aboutPrizeTexts.logoDsc}</div>
         </div>
       </div>
     </div>
