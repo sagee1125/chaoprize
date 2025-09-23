@@ -29,6 +29,7 @@ export const awardTrilingualText: Record<
     title: "AWARDS",
     intro:
       "Two awards will be given biennially, namely Lifetime Achievement Award and Early Career Contribution Award. The Prize will be presented by the President of The Hong Kong Polytechnic University. Consideration for the awards will be based on individuals’ contributions, regardless of their races, nationalities, genders and religious affiliations.",
+
     // Lifetime Achievement Award
     lifetimeAchievementAwardIntro:
       "This award is conferred to a senior individual whose academic life has been devoted to language science studies and who has made long-term outstanding contributions to the field. The following requirements must be met:",
