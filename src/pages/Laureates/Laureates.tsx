@@ -1,5 +1,5 @@
 import React from "react";
-import { Language, useLanguage } from "../../context";
+import { useLanguage } from "../../context";
 import { SectionBanner } from "../../components";
 import { laureatesTrilingualText } from "./i18n";
 
@@ -52,7 +52,10 @@ export const Laureates: React.FC = () => {
             </p>
 
             <video
-              src={"/images/laureates/Prof_Peter_Hagoort.mp4"}
+              src={
+                process.env.PUBLIC_URL +
+                "/images/laureates/Prof_Peter_Hagoort.mp4"
+              }
               autoPlay
               muted
               controls
@@ -124,7 +127,7 @@ export const Laureates: React.FC = () => {
             </p>
 
             <video
-              src={"/images/laureates/Prof_Wang.mp4"}
+              src={process.env.PUBLIC_URL + "/images/laureates/Prof_Wang.mp4"}
               autoPlay
               muted
               controls

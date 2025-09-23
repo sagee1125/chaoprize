@@ -50,7 +50,9 @@ export const AboutThePrize: React.FC = () => {
 
         <div>
           <video
-            src={"/images/aboutThePrize/aboutThePrize.mp4"}
+            src={
+              process.env.PUBLIC_URL + "/images/aboutThePrize/aboutThePrize.mp4"
+            }
             autoPlay
             muted
             loop

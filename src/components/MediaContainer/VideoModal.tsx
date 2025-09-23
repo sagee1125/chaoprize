@@ -34,7 +34,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
       <div className="w-[80vw] h-auto md:w-auto md:h-[40vh] bg-black overflow-hidden">
         <video
           ref={videoRef}
-          src={src}
+          src={process.env.PUBLIC_URL + src}
           className="w-full md:w-auto md:h-full cursor-pointer"
           controls
           autoPlay

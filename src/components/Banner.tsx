@@ -43,7 +43,7 @@ const Banner: React.FC = () => {
                 />
               ) : (
                 <video
-                  src={item.src}
+                  src={process.env.PUBLIC_URL + item.src}
                   autoPlay
                   muted
                   loop

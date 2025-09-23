@@ -166,7 +166,7 @@ export const MediaContainer: React.FunctionComponent<MediaContainerProps> = (
                 ) : (
                   // 顯示影片
                   <video
-                    src={videoSrc}
+                    src={process.env.PUBLIC_URL + videoSrc}
                     controls
                     autoPlay
                     className="absolute top-0 left-0 w-full h-full object-cover"

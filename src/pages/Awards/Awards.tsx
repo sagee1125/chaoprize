@@ -1,5 +1,5 @@
 import React from "react";
-import { Language, useLanguage } from "../../context";
+import { useLanguage } from "../../context";
 import { SectionBanner } from "../../components";
 import { awardTrilingualText } from "./i18n";
 
