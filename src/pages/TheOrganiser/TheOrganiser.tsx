@@ -9,8 +9,7 @@ export const TheOrganiser: React.FC = () => {
 
   return (
     <div
-      className={`w-full max-w-screen overflow-x-hidden bg-lightBgc
-                    ${lang === Language.EN ? "font-en" : "font-zh"}`}
+      className={`w-full max-w-screen overflow-x-hidden bg-lightBgc font-enzh`}
     >
       <SectionBanner title={theOrganizeTexts.title} />
       <div className="lg:px-[300px] px-4 py-24 flex flex-col gap-12 text-dark text-[10px] md:text-lg/7 !font-thin">
