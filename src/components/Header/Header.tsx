@@ -20,11 +20,7 @@ export const Header: React.FC = () => {
     },
   ];
   return (
-    <header
-      className={`bg-white text-white shadow-md h-[180px] ${
-        lang === Language.EN ? "font-en" : "font-zh"
-      }`}
-    >
+    <header className={`bg-white text-white shadow-md h-[180px] font-enzh`}>
       <div className="w-full h-full px-4 lg:px-14 my-auto pt-7 pb-3">
         <div className="flex h-full flex-row items-center">
           {/* Logo */}

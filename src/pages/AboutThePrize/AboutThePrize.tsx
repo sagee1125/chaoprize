@@ -9,8 +9,7 @@ export const AboutThePrize: React.FC = () => {
 
   return (
     <div
-      className={`w-full max-w-screen overflow-x-hidden pb-12 bg-lightBgc
-                    ${lang === Language.EN ? "font-en" : "font-zh"}`}
+      className={`w-full max-w-screen overflow-x-hidden pb-12 bg-lightBgc font-enzh`}
     >
       <SectionBanner title={aboutPrizeTexts.title} />
       <div className="lg:px-[300px] px-4 flex flex-col gap-24 text-dark text-[10px] md:text-lg/7 !font-thin">

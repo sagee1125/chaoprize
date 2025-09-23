@@ -3,6 +3,22 @@
   overflow-x: hidden;
 }
 
+@font-face {
+  font-family: "custom-en";
+  src: local("Baskerville");
+  unicode-range: U+0000-007F; /* 基本拉丁字母 */
+}
+
+@font-face {
+  font-family: "custom-zh";
+  src: local("PolyU Kai"), local("KaiTi");
+  unicode-range: U+4E00-9FFF; /* 中文 */
+}
+
+.font-enzh {
+  font-family: "custom-en", "custom-zh", serif;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

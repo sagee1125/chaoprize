@@ -19,8 +19,7 @@ module.exports = {
         lightBgc: "#FFFBF0",
       },
       fontFamily: {
-        en: ["Baskerville", "serif"],
-        zh: ['"PolyU Kai"', "KaiTi", "serif"],
+        enzh: ["custom-en", "custom-zh", "serif"],
       },
       fontSize: {
         "heading-xs": ["0.875rem", { lineHeight: "1.25rem", fontWeight: 700 }],

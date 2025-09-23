@@ -54,11 +54,7 @@ export const Footer: React.FC = () => {
     },
   ];
   return (
-    <footer
-      className={`w-screen bg-bcg ${
-        lang === Language.EN ? "font-en" : "font-zh"
-      }`}
-    >
+    <footer className={`w-screen bg-bcg font-enzh`}>
       <div
         className="
           mx-auto 

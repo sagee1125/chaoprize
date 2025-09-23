@@ -18,8 +18,7 @@ export const Publications: React.FC = () => {
 
   return (
     <div
-      className={`w-full max-w-screen overflow-x-hidden pb-12 bg-white
-                    ${lang === Language.EN ? "font-en" : "font-zh"}`}
+      className={`w-full max-w-screen overflow-x-hidden pb-12 bg-white font-enzh`}
     >
       <SectionBanner title="PUBLICATIONS" />
       <div className="lg:px-[300px] px-4 flex flex-col gap-24 text-dark !font-thin py-8 md:py-20">

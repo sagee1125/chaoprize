@@ -10,9 +10,7 @@ const Nav: React.FC = () => {
 
   return (
     <nav
-      className={`text-main w-full space-x-6  items-center relative flex justify-center
-         ${lang === Language.EN ? "font-en" : "font-zh"}
-         `}
+      className={`text-main w-full space-x-6  items-center relative flex justify-center font-enzh`}
       onMouseLeave={() => setHovered(null)}
     >
       <div
