@@ -1,10 +1,10 @@
 import { Language } from "../../context";
 
-type AboutPrizeKeys = "title" | "description" | "learnMore";
+type ThePatronKeys = "title" | "description" | "learnMore";
 
 export const thePatronTrilingualText: Record<
   Language,
-  Record<AboutPrizeKeys, string>
+  Record<ThePatronKeys, string>
 > = {
   [Language.EN]: {
     title: "THE PATRON",
