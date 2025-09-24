@@ -43,13 +43,8 @@ export const Laureates: React.FC = () => {
               {laureatesText.pioneeringContributions}
             </p>
             <p>{laureatesText.HagoortPioneeringContributions}</p>
-            <p className="text-3xl pt-6">Recognition and Award</p>
-            <p>
-              Prof. Hagoort received the Yuen Ren Chao Prize in Language Science
-              for his distinguished contributions to the interdisciplinary
-              studies in cognitive neuroscience and the understanding of human
-              language processing in the brain.
-            </p>
+            <p className="text-3xl pt-6">{laureatesText.recognitionAward}</p>
+            <p>{laureatesText.HagoortRecognitionAward}</p>
 
             <video
               src={
@@ -118,7 +113,7 @@ export const Laureates: React.FC = () => {
               the University of Chicago, and Honorary Degree of Doctor of
               Humanities honoris causa from University of Macau.
             </p>
-            <p className="text-3xl pt-6">Recognition and Award</p>
+            <p className="text-3xl pt-6">{laureatesText.recognitionAward}</p>
             <p>
               Prof. Wang received the Yuen Ren Chao Prize in Language Science
               for his distinguished contributions to the interdisciplinary

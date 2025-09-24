@@ -15,9 +15,7 @@ export const ContactUs: React.FC = () => {
       <div className="lg:px-[300px] px-4 py-24 flex flex-col gap-24 text-dark text-[10px] md:text-lg/7 !font-thin">
         <div className="grid grid-cols-3 gap-3">
           <div>{contactUsTexts.description}</div>
-          <div>
-            <a href="mailto:chao.prize@polyu.edu.hk">chao.prize@polyu.edu.hk</a>
-          </div>
+          <a href="mailto:chao.prize@polyu.edu.hk">chao.prize@polyu.edu.hk</a>
         </div>
       </div>
     </div>
