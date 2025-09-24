@@ -2,25 +2,34 @@ import React, { useState } from "react";
 import {
   albumIcon,
   MediaType,
+  mediaTypeTrilingualText,
   newIcon,
   pdfIcon,
   photoIcon,
   videoIcon,
+  viewTrilingualText,
 } from "./const";
 import { VideoModal } from "./VideoModal";
 import { CirclePlay } from "lucide-react";
 import { PhotoModal } from "./PhotoModal";
+import { useLanguage } from "../../context";
+import { getCurrentText } from "../../utils";
 
-interface MediaContainerProps {
+export type TrilingualText = {
+  en: string;
+  tc: string;
+  sc: string;
+};
+type MediaContainerProps = {
   type: MediaType;
-  title: string;
-  description?: string;
+  title: TrilingualText;
+  description?: TrilingualText;
   thumbnail: string;
   link?: string;
   videoSrc?: string;
   target?: "_blank" | "_self";
   videoPreview?: boolean;
-}
+};
 
 export const MediaContainer: React.FunctionComponent<MediaContainerProps> = (
   props: MediaContainerProps
@@ -35,6 +44,7 @@ export const MediaContainer: React.FunctionComponent<MediaContainerProps> = (
     videoSrc,
     videoPreview = false,
   } = props;
+  const { lang } = useLanguage();
 
   const [openVideoModal, setOpenVideoModal] = useState(false);
   const [openPhotoModal, setOpenPhotoModal] = useState(false);
@@ -58,6 +68,10 @@ export const MediaContainer: React.FunctionComponent<MediaContainerProps> = (
   const handleOpenPhotoModal = (): void => {
     setOpenPhotoModal(true);
   };
+  const typeText = mediaTypeTrilingualText[lang][type];
+  const viewText = viewTrilingualText[lang].view;
+  const titleText = getCurrentText(title, lang);
+  const descriptionText = description ? getCurrentText(description, lang) : "";
   if ([MediaType.News, MediaType.Pdf].includes(type))
     return (
       <div className="w-full flex flex-col space-y-0">
@@ -90,7 +104,7 @@ export const MediaContainer: React.FunctionComponent<MediaContainerProps> = (
             <div className="overflow-hidden">
               <div className="flex items-center gap-1 md:gap-3  text-second">
                 {icon}
-                {type}
+                {typeText}
               </div>
 
               <p
@@ -100,11 +114,11 @@ export const MediaContainer: React.FunctionComponent<MediaContainerProps> = (
                     : "line-clamp-1 md:line-clamp-2 md:py-2"
                 }`}
               >
-                {title}
+                {titleText}
               </p>
               {description && (
                 <p className="line-clamp-1 pb-2 hidden md:block">
-                  {description}
+                  {descriptionText}
                 </p>
               )}
             </div>
@@ -117,7 +131,7 @@ export const MediaContainer: React.FunctionComponent<MediaContainerProps> = (
                           inline-block border border-main text-main hover:bg-main 
                           hover:text-white font-medium transition-colors tracking-wider"
             >
-              View
+              {viewText}
             </a>
           </div>
         </div>
@@ -194,11 +208,11 @@ export const MediaContainer: React.FunctionComponent<MediaContainerProps> = (
               <div>
                 <div className="flex items-center gap-1 md:gap-3  text-second">
                   {icon}
-                  {type}
+                  {typeText}
                 </div>
-                <p className="line-clamp-1 md:pt-2 md:pb-1">{title}</p>
+                <p className="line-clamp-1 md:pt-2 md:pb-1">{titleText}</p>
                 <p className="line-clamp-1 pb-2 hidden md:block">
-                  {description}
+                  {descriptionText}
                 </p>
               </div>
               <button
@@ -207,7 +221,7 @@ export const MediaContainer: React.FunctionComponent<MediaContainerProps> = (
                           inline-block border border-main text-main hover:bg-main 
                           hover:text-white font-medium transition-colors tracking-wider"
               >
-                View
+                {viewText}
               </button>
             </div>
           </div>
@@ -259,9 +273,9 @@ export const MediaContainer: React.FunctionComponent<MediaContainerProps> = (
                 {" "}
                 <div className="flex items-center gap-1 md:gap-3  text-second">
                   {icon}
-                  {type}
+                  {typeText}
                 </div>
-                <p className="line-clamp-1 md:py-2">{title}</p>
+                <p className="line-clamp-1 md:py-2">{titleText}</p>
               </div>
               <a
                 href={link}
@@ -272,7 +286,7 @@ export const MediaContainer: React.FunctionComponent<MediaContainerProps> = (
                           inline-block border border-main text-main hover:bg-main 
                           hover:text-white font-medium transition-colors tracking-wider"
               >
-                View
+                {viewText}
               </a>
             </div>
           </div>
@@ -299,7 +313,6 @@ export const MediaContainer: React.FunctionComponent<MediaContainerProps> = (
             />
           </div>
 
-          {/* 下方子元素，高度與上方相同 */}
           <div
             className="w-full relative border-b border-r border-l border-main/20 text-[8px] md:text-base"
             style={{ paddingTop: "25%" }}
@@ -307,7 +320,7 @@ export const MediaContainer: React.FunctionComponent<MediaContainerProps> = (
             <div className="absolute top-0 left-0 w-full h-full flex flex-col items-start justify-between p-1 md:px-4 md:pb-4">
               <div className="flex items-center gap-1 md:gap-3  text-second">
                 {icon}
-                {type}
+                {typeText}
               </div>
 
               <button
@@ -316,7 +329,7 @@ export const MediaContainer: React.FunctionComponent<MediaContainerProps> = (
                           inline-block border border-main text-main hover:bg-main 
                           hover:text-white font-medium transition-colors tracking-wider"
               >
-                View
+                {viewText}
               </button>
             </div>
           </div>
@@ -364,9 +377,9 @@ export const MediaContainer: React.FunctionComponent<MediaContainerProps> = (
         <div className="absolute top-0 left-0 w-full h-full items-start justify-start p-1 md:p-4">
           <div className="flex items-center gap-3 text-second">
             {icon}
-            {type}
+            {typeText}
           </div>
-          <p className="line-clamp-2 py-2">{title}</p>
+          <p className="line-clamp-2 py-2">{titleText}</p>
           <a
             href={link}
             {...(target === "_blank"
@@ -376,7 +389,7 @@ export const MediaContainer: React.FunctionComponent<MediaContainerProps> = (
                           inline-block border border-main text-main hover:bg-main 
                           hover:text-white font-medium transition-colors tracking-wider"
           >
-            View
+            {viewText}
           </a>
         </div>
       </div>

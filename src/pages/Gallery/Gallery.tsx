@@ -1,21 +1,30 @@
 import React from "react";
-import { Language, useLanguage } from "../../context";
+import { useLanguage } from "../../context";
 import { SectionBanner } from "../../components";
 import { MediaContainer } from "../../components/MediaContainer";
 import { MediaType } from "../../components/MediaContainer/const";
+import { galleryTrilingualText } from "./i18n";
 
 export const Gallery: React.FC = () => {
   const { lang } = useLanguage();
-
+  const galleryTexts = galleryTrilingualText[lang];
   const photos = [
     {
-      title: "Launch Ceremony",
+      title: {
+        en: "Launch Ceremony",
+        tc: "​趙元任語言科學獎成立典禮",
+        sc: "赵元任语言科学奖成立典礼",
+      },
       image: "/images/gallery/60-JCR67151.avif",
       link: "/gallery-launchceremony",
       target: "_self" as "_blank" | "_self",
     },
     {
-      title: "Award Presentation Ceremony",
+      title: {
+        en: "Award Presentation Ceremony",
+        tc: "趙元任語言科學獎頒獎典禮",
+        sc: "赵元任语言科学奖颁奖典礼",
+      },
       image: "/images/gallery/HEI_9822.avif",
       link: "/gallery-awardpresentationceremony",
       target: "_self" as "_blank" | "_self",
@@ -26,26 +35,42 @@ export const Gallery: React.FC = () => {
     {
       type: MediaType.Video,
       thumbnail: "/images/gallery/thumb-e1a3ec.avif",
-      title: "Chao Prize Presentation Ceremony",
+      title: {
+        en: "Chao Prize Presentation Ceremony",
+        tc: "趙元任語言科學獎頒獎典禮",
+        sc: "赵元任语言科学奖颁奖典礼",
+      },
       videoSrc: "/images/gallery/Chao-Prize-Presentation-Ceremony.mp4",
     },
     {
       type: MediaType.Video,
       thumbnail: "/images/gallery/e1a3ec_04.avif",
-      title: "Prof. Peter Hagoort’s Acceptance Speech",
+      title: {
+        en: "Prof. Peter Hagoort’s Acceptance Speech",
+        tc: "得獎者Peter Hagoort 教授得獎感言",
+        sc: "得奖者 Peter Hagoort 教授的得奖感言",
+      },
       videoSrc: "/images/gallery/Prof-Peter-Hagoort-Acceptance-Speech.mp4",
     },
     {
       type: MediaType.Video,
       thumbnail: "/images/gallery/e1a3ec_37.jpg",
-      title: "Chao Prize Launch Ceremony",
+      title: {
+        en: "Chao Prize Launch Ceremony",
+        tc: "趙元任語言科學獎頒獎典禮",
+        sc: "赵元任语言科学奖启动仪式",
+      },
       videoSrc: "/images/gallery/Chao-Prize-Launch-Ceremony.mp4",
     },
     {
       type: MediaType.Video,
       thumbnail:
         "/images/gallery/Laureate-Prof-William-Shiyuan-Wang-Acceptance-Speech.avif",
-      title: "Laureate Prof. William Shiyuan Wang’s Acceptance Speech",
+      title: {
+        en: "Laureate Prof. William Shiyuan Wang’s Acceptance Speech",
+        tc: "得獎者王世元教授得獎感言",
+        sc: "得奖者王世元教授得奖感言",
+      },
       videoSrc:
         "/images/gallery/Laureate-Prof-William-Shiyuan-Wang-Acceptance-Speech.mp4",
     },
@@ -55,10 +80,10 @@ export const Gallery: React.FC = () => {
     <div
       className={`w-full max-w-screen overflow-x-hidden pb-12 bg-white font-enzh`}
     >
-      <SectionBanner title="GALLERY" />
+      <SectionBanner title={galleryTexts.title} />
       <div className="lg:px-[300px] px-4 flex flex-col gap-24 text-dark !font-thin py-8 md:py-20">
         <div>
-          <p className="text-lg md:text-3xl pb-6">Photos</p>
+          <p className="text-lg md:text-3xl pb-6">{galleryTexts.photos}</p>
           <div className="grid grid-cols-3 gap-6">
             {photos.map((item, i) => (
               <MediaContainer
@@ -73,7 +98,7 @@ export const Gallery: React.FC = () => {
           </div>
         </div>
         <div>
-          <p className="text-lg md:text-3xl pb-6">Videos</p>
+          <p className="text-lg md:text-3xl pb-6">{galleryTexts.videos}</p>
           <div className="grid grid-cols-3 gap-6">
             {videos.map((item, i) => (
               <MediaContainer

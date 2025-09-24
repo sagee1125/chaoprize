@@ -1,3 +1,5 @@
+import { Language } from "../../context";
+
 export const enum MediaType {
   News = "News",
   Video = "Video",
@@ -6,6 +8,48 @@ export const enum MediaType {
   Photo = "Launch Ceremony",
   Award = "Award Presentation Ceremony",
 }
+
+export const mediaTypeTrilingualText: Record<
+  Language,
+  Record<MediaType, string>
+> = {
+  [Language.EN]: {
+    [MediaType.News]: "News",
+    [MediaType.Video]: "Video",
+    [MediaType.Pdf]: "PDF",
+    [MediaType.Album]: "Album",
+    [MediaType.Photo]: "Launch Ceremony",
+    [MediaType.Award]: "Award Presentation Ceremony",
+  },
+  [Language.SC]: {
+    [MediaType.News]: "最新消息",
+    [MediaType.Video]: "视频",
+    [MediaType.Pdf]: "PDF",
+    [MediaType.Album]: "特辑",
+    [MediaType.Photo]: "赵元任语言科学奖成立典礼",
+    [MediaType.Award]: "Award Presentation Ceremony",
+  },
+  [Language.TC]: {
+    [MediaType.News]: "最新消息",
+    [MediaType.Video]: "視頻",
+    [MediaType.Pdf]: "PDF",
+    [MediaType.Album]: "特輯",
+    [MediaType.Photo]: "趙元任語言科學獎成立典禮",
+    [MediaType.Award]: "Award Presentation Ceremony",
+  },
+};
+
+export const viewTrilingualText: Record<Language, Record<"view", string>> = {
+  [Language.EN]: {
+    view: "View",
+  },
+  [Language.SC]: {
+    view: "查看",
+  },
+  [Language.TC]: {
+    view: "查看",
+  },
+};
 
 export const newIcon = (
   <svg
