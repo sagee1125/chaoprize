@@ -1,5 +1,5 @@
 import React from "react";
-import { useSettings } from "../../hooks";
+import { useSettings } from "../../context";
 
 export const ScrollTopButton: React.FC = () => {
   const { isPC } = useSettings();

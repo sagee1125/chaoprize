@@ -1,7 +1,8 @@
 import React from "react";
 import { Footer } from "./components/Footer/Footer";
 import { Header, ScrollTopButton } from "./components";
-import { useSettings } from "./hooks";
+import { useSettings } from "./context";
+
 type LayoutProps = {
   children: React.ReactNode;
 };

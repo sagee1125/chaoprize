@@ -6,6 +6,7 @@ import React, {
   useEffect,
 } from "react";
 import { Language, useLanguage } from "../context";
+import { useMediaQuery } from "@mui/material";
 
 type SettingsContextType = {
   isPC: boolean;
@@ -20,18 +21,12 @@ export const SettingsProvider: React.FC<{ children: ReactNode }> = ({
 }) => {
   const { lang } = useLanguage();
 
-  const [isPC, setIsPC] = useState(window.innerWidth >= 1440);
+  const isPC = useMediaQuery("(min-width:1440px)");
   // const isTablet = useMediaQuery(
   //   "(min-width:1024px) and (max-width:1439.99px)"
   // );
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
-
-  useEffect(() => {
-    const handleResize = () => setIsPC(window.innerWidth >= 1440);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   const withLoading = async (callback: () => Promise<void>) => {
     try {

@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Header, Footer, TitleManager } from "./components";
+import { TitleManager } from "./components";
 import { LanguageProvider } from "./context";
 import {
   AboutThePrize,
@@ -20,7 +20,7 @@ import {
   AwardPresentationCeremony,
 } from "./pages";
 import { Layout } from "./Layout";
-import { SettingsProvider } from "./hooks/SettingsContext";
+import { SettingsProvider } from "./context";
 
 function App() {
   return (
