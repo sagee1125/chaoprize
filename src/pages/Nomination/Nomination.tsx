@@ -1,18 +1,28 @@
 import React from "react";
 import { nominationTrilingualText } from "./i18n";
-import { Language, useLanguage } from "../../context";
-import { SectionBanner } from "../../components";
+import { Language, useLanguage, useSettings } from "../../context";
+import {
+  maxMobileContainer,
+  maxPCContainer,
+  SectionBanner,
+} from "../../components";
 
 export const Nomination: React.FC = () => {
   const { lang } = useLanguage();
   const nominationTexts = nominationTrilingualText[lang];
+  const { isMobile } = useSettings();
+
   return (
-    <div
-      className={`w-full max-w-screen overflow-x-hidden pb-12 bg-lightBgc font-enzh`}
-    >
+    <div className={`w-full h-full overflow-x-hidden bg-lightBgc font-enzh`}>
       <SectionBanner title={nominationTexts.title} />
-      <div className="lg:px-[300px] px-4 flex flex-col gap-24 text-dark !font-thin py-8 md:py-20">
-        <div className="space-y-12">
+      <div
+        className="py-12 lg:py-24 flex flex-col gap-12 text-dark text-[10px] md:text-lg/7 !font-thin px-4 lg:px-0"
+        style={{
+          ...(!isMobile ? maxPCContainer : maxMobileContainer),
+        }}
+      >
+        {" "}
+        <div className="space-y-6 md:space-y-12">
           <p className="underline text-lg md:text-3xl">
             {nominationTexts.submissionNNomination}
           </p>
@@ -44,8 +54,7 @@ export const Nomination: React.FC = () => {
             )}
           </div>
         </div>
-
-        <div className="space-y-12 pb-8">
+        <div className="space-y-6 md:space-y-12 pb-8">
           <p className="underline text-lg md:text-3xl">
             {nominationTexts.nominationForm}
           </p>
@@ -97,8 +106,7 @@ export const Nomination: React.FC = () => {
             </div>
           </div>
         </div>
-
-        <div className="space-y-12">
+        <div className="space-y-6 md:space-y-12">
           <p className="underline text-lg md:text-3xl">
             {nominationTexts.nominationGuidelines}
           </p>
@@ -136,8 +144,7 @@ export const Nomination: React.FC = () => {
             )}
           </div>
         </div>
-
-        <div className="space-y-12">
+        <div className="space-y-6 md:space-y-12">
           <p className="underline text-lg md:text-3xl">
             {nominationTexts.selection}
           </p>

@@ -55,9 +55,7 @@ export const Footer: React.FC = () => {
     },
   ];
   return (
-    <footer
-      className={`w-screen bg-bcg font-enzh py-12 lg:py-24 px-12 lg:px-0`}
-    >
+    <footer className={`w-screen bg-bcg font-enzh py-12 lg:py-24 px-6 lg:px-0`}>
       <div
         style={{
           ...(!isMobile ? maxPCContainer : maxMobileContainer),

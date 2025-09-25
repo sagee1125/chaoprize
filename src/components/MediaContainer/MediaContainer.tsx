@@ -12,7 +12,7 @@ import {
 import { VideoModal } from "./VideoModal";
 import { CirclePlay } from "lucide-react";
 import { PhotoModal } from "./PhotoModal";
-import { useLanguage } from "../../context";
+import { useLanguage, useSettings } from "../../context";
 import { getCurrentText } from "../../utils";
 
 export type TrilingualText = {
@@ -48,6 +48,7 @@ export const MediaContainer: React.FunctionComponent<MediaContainerProps> = (
 
   const [openVideoModal, setOpenVideoModal] = useState(false);
   const [openPhotoModal, setOpenPhotoModal] = useState(false);
+  const { isMobile } = useSettings();
 
   const [isPlaying, setIsPlaying] = useState(false);
   // const [hover, setHover] = useState(false);
@@ -98,20 +99,18 @@ export const MediaContainer: React.FunctionComponent<MediaContainerProps> = (
         {/* 下方子元素，高度與上方相同 */}
         <div
           className="w-full relative border-b border-r border-l border-main/20 text-[8px] md:text-lg"
-          style={{ paddingTop: "50%" }}
+          style={{ paddingTop: isMobile ? "70%" : "50%" }}
         >
           <div className="absolute top-0 left-0 w-full h-full flex flex-col items-start justify-between p-1 md:p-4">
             <div className="overflow-hidden">
-              <div className="flex items-center gap-1 md:gap-3  text-second">
+              <div className="flex items-center gap-1 md:gap-3 text-second">
                 {icon}
                 {typeText}
               </div>
 
               <p
-                className={`block overflow-hidden ${
-                  description
-                    ? "line-clamp-1 md:pt-2 md:pb-1"
-                    : "line-clamp-1 md:line-clamp-2 md:py-2"
+                className={`overflow-hidden display-[-webkit-box] -webkit-box-orient-vertical ${
+                  description ? "line-clamp-1 pt-2 md:pb-1" : "line-clamp-2"
                 }`}
               >
                 {titleText}
@@ -202,7 +201,7 @@ export const MediaContainer: React.FunctionComponent<MediaContainerProps> = (
           {/* 下方子元素，高度與上方相同 */}
           <div
             className="w-full relative border-b border-r border-l border-main/20 text-[8px] md:text-lg"
-            style={{ paddingTop: "50%" }}
+            style={{ paddingTop: isMobile ? "70%" : "50%" }}
           >
             <div className="absolute top-0 left-0 w-full h-full flex flex-col items-start justify-between p-1 md:p-4">
               <div>
@@ -210,7 +209,7 @@ export const MediaContainer: React.FunctionComponent<MediaContainerProps> = (
                   {icon}
                   {typeText}
                 </div>
-                <p className="line-clamp-1 md:pt-2 md:pb-1">{titleText}</p>
+                <p className="line-clamp-1 pt-2 md:pb-1">{titleText}</p>
                 <p className="line-clamp-1 pb-2 hidden md:block">
                   {descriptionText}
                 </p>
@@ -266,7 +265,7 @@ export const MediaContainer: React.FunctionComponent<MediaContainerProps> = (
           {/* 下方子元素，高度與上方相同 */}
           <div
             className="w-full relative border-b border-r border-l border-main/20 text-[8px] md:text-lg"
-            style={{ paddingTop: "50%" }}
+            style={{ paddingTop: isMobile ? "70%" : "50%" }}
           >
             <div className="absolute top-0 left-0 w-full h-full items-start flex flex-col justify-between p-1 md:p-4">
               <div>
@@ -315,7 +314,7 @@ export const MediaContainer: React.FunctionComponent<MediaContainerProps> = (
 
           <div
             className="w-full relative border-b border-r border-l border-main/20 text-[8px] md:text-base"
-            style={{ paddingTop: "25%" }}
+            style={{ paddingTop: isMobile ? "40%" : "25%" }}
           >
             <div className="absolute top-0 left-0 w-full h-full flex flex-col items-start justify-between p-1 md:px-4 md:pb-4">
               <div className="flex items-center gap-1 md:gap-3  text-second">
@@ -372,7 +371,7 @@ export const MediaContainer: React.FunctionComponent<MediaContainerProps> = (
       {/* 下方子元素，高度與上方相同 */}
       <div
         className="w-full relative border-b border-r border-l border-main/20 text-[8px] md:text-lg"
-        style={{ paddingTop: "50%" }}
+        style={{ paddingTop: isMobile ? "70%" : "50%" }}
       >
         <div className="absolute top-0 left-0 w-full h-full items-start justify-start p-1 md:p-4">
           <div className="flex items-center gap-3 text-second">

@@ -1,15 +1,19 @@
 import React from "react";
-import { useLanguage } from "../../context";
-import { SectionBanner } from "../../components";
+import { useLanguage, useSettings } from "../../context";
+import {
+  maxMobileContainer,
+  maxPCContainer,
+  SectionBanner,
+} from "../../components";
 import { laureatesTrilingualText } from "./i18n";
 
 export const Laureates: React.FC = () => {
   const { lang } = useLanguage();
   const laureatesText = laureatesTrilingualText[lang];
+  const { isMobile } = useSettings();
+
   return (
-    <div
-      className={`w-full max-w-screen overflow-x-hidden pb-12 bg-white font-enzh`}
-    >
+    <div className={`w-full h-full overflow-x-hidden bg-lightBgc font-enzh`}>
       <SectionBanner
         title={laureatesText.title}
         href={
@@ -17,33 +21,42 @@ export const Laureates: React.FC = () => {
           lang
         }
       />
-      <div className="lg:px-[300px] px-4 flex flex-col gap-10 text-dark text-[10px] md:text-lg/7 !font-thin py-8 md:py-20">
+      <div
+        className="py-12 lg:py-24 flex flex-col gap-12 text-dark text-[10px] md:text-lg/7 !font-thin px-4 lg:px-0"
+        style={{
+          ...(!isMobile ? maxPCContainer : maxMobileContainer),
+        }}
+      >
         <img
           src={laureatesText.bannerImg}
           alt={``}
           className="w-full h-auto object-cover"
         />
-        <div className="grid grid-cols-[1fr,2fr] gap-x-12 gap-y-20">
+        <div className="grid grid-cols-[1fr,2fr] gap-2 md:gap-x-12 md:gap-y-20">
           <div>
             <img
               src={"/images/laureates/Prof_Peter_Hagoort.avif"}
               alt={``}
               className="w-full h-auto object-cover"
             />
-            <p className="py-4 text-xl">{laureatesText.hagoort}</p>
+            <p className="py-4 text-sm md:text-xl">{laureatesText.hagoort}</p>
           </div>
           <div className="space-y-4 px-8">
-            <p className="text-3xl">{laureatesText.academicLeadership}</p>
+            <p className="text-base md:text-3xl">
+              {laureatesText.academicLeadership}
+            </p>
             <p
               dangerouslySetInnerHTML={{
                 __html: laureatesText.hagoortAcademicLeadership,
               }}
             />
-            <p className="text-3xl pt-6">
+            <p className="text-base md:text-3xl pt-6">
               {laureatesText.pioneeringContributions}
             </p>
             <p>{laureatesText.hagoortPioneeringContributions}</p>
-            <p className="text-3xl pt-6">{laureatesText.recognitionAward}</p>
+            <p className="text-base md:text-3xl pt-6">
+              {laureatesText.recognitionAward}
+            </p>
             <p>{laureatesText.hagoortRecognitionAward}</p>
 
             <video
@@ -54,33 +67,36 @@ export const Laureates: React.FC = () => {
               autoPlay
               muted
               controls
-              className="w-full h-auto object-cover py-8"
+              className="w-full h-auto object-cover py-0 md:py-8"
             />
           </div>
         </div>
         <hr className="border-dark bg-dark" />
-
-        <div className="grid grid-cols-[1fr,2fr] gap-x-12 gap-y-20">
+        <div className="grid grid-cols-[1fr,2fr] gap-2 md:gap-x-12 md:gap-y-20">
           <div>
             <img
               src={"/images/laureates/Prof_Wang.avif"}
               alt={``}
               className="w-full h-auto object-cover"
             />
-            <p className="py-4 text-xl">{laureatesText.william}</p>
+            <p className="py-4 text-sm md:text-xl">{laureatesText.william}</p>
           </div>
           <div className="space-y-4 px-8">
-            <p className="text-3xl">{laureatesText.academicLeadership}</p>
+            <p className="text-base md:text-3xl">
+              {laureatesText.academicLeadership}
+            </p>
             <p
               dangerouslySetInnerHTML={{
                 __html: laureatesText.williamAcademicLeadership,
               }}
             />
-            <p className="text-3xl pt-6">
+            <p className="text-base md:text-3xl pt-6">
               {laureatesText.pioneeringContributions}
             </p>
             <p>{laureatesText.williamPioneeringContributions}</p>
-            <p className="text-3xl pt-6">{laureatesText.recognitionAward}</p>
+            <p className="text-base md:text-3xl pt-6">
+              {laureatesText.recognitionAward}
+            </p>
             <p>{laureatesText.williamRecognitionAward}</p>
 
             <video
@@ -88,7 +104,7 @@ export const Laureates: React.FC = () => {
               autoPlay
               muted
               controls
-              className="w-full h-auto object-cover py-8"
+              className="w-full h-auto object-cover py-0 md:py-8"
             />
           </div>
         </div>
