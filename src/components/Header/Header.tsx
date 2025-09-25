@@ -2,10 +2,24 @@ import React from "react";
 import Nav from "../Nav/Nav";
 import { Language, useLanguage, useSettings } from "../../context";
 
+type HeaderKeys = "logo";
+
+const bannerTrilingualText: Record<Language, Record<HeaderKeys, string>> = {
+  [Language.EN]: {
+    logo: "/logo_en.avif",
+  },
+  [Language.SC]: {
+    logo: "/logo_tc.avif",
+  },
+  [Language.TC]: {
+    logo: "/logo_tc.avif",
+  },
+};
+
 export const Header: React.FC = () => {
   const { lang, switchLanguage } = useLanguage();
   const { isPC } = useSettings();
-
+  const bannerTexts = bannerTrilingualText[lang];
   const trilingualSwitch: Array<{ lang: Language; label: string }> = [
     {
       lang: Language.EN,
@@ -30,7 +44,7 @@ export const Header: React.FC = () => {
             <div>
               <a href="/" target="_self">
                 <img
-                  src="/logo_en.avif"
+                  src={bannerTexts.logo}
                   alt="Chao Prize Logo"
                   className="h-auto lg:h-[140px] w-auto object-contain"
                   style={{ maxHeight: "140px" }}
@@ -97,7 +111,7 @@ export const Header: React.FC = () => {
             <div className="flex">
               <a href="/" target="_self">
                 <img
-                  src="/logo_en.avif"
+                  src={bannerTexts.logo}
                   alt="Chao Prize Logo"
                   className="max-h-[136px] w-auto object-contain"
                 />

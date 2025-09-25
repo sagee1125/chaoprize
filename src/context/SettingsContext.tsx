@@ -10,6 +10,8 @@ import { useMediaQuery } from "@mui/material";
 
 type SettingsContextType = {
   isPC: boolean;
+  isTablet: boolean;
+  isMobile: boolean;
 };
 
 const SettingsContext = createContext<SettingsContextType | undefined>(
@@ -22,9 +24,10 @@ export const SettingsProvider: React.FC<{ children: ReactNode }> = ({
   const { lang } = useLanguage();
 
   const isPC = useMediaQuery("(min-width:1440px)");
-  // const isTablet = useMediaQuery(
-  //   "(min-width:1024px) and (max-width:1439.99px)"
-  // );
+  const isTablet = useMediaQuery(
+    "(min-width:1024px) and (max-width:1439.99px)"
+  );
+  const isMobile = useMediaQuery("(max-width:1023.99px)");
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -59,7 +62,8 @@ export const SettingsProvider: React.FC<{ children: ReactNode }> = ({
       value={{
         // isLoading,
         isPC,
-
+        isTablet,
+        isMobile,
         // setIsLoading,
         // withLoading,
       }}

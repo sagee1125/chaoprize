@@ -1,6 +1,6 @@
 import React from "react";
 import Banner from "../../components/Banner";
-import { Language, useLanguage } from "../../context";
+import { Language, useLanguage, useSettings } from "../../context";
 import { importantDatesIcon, nominationIcon } from "./const";
 import {
   aboutPrizeTrilingualText,
@@ -10,6 +10,7 @@ import {
 
 export const Home: React.FC = () => {
   const { lang } = useLanguage();
+  const { isPC } = useSettings();
   const aboutPrizeTexts = aboutPrizeTrilingualText[lang];
   const awardsTexts = awardsTrilingualText[lang];
   const mediaText = mediaTrilingualText[lang];
