@@ -1,27 +1,37 @@
 import React from "react";
-import { Language, useLanguage } from "../../context";
-import { SectionBanner } from "../../components";
+import { useLanguage, useSettings } from "../../context";
+import {
+  maxMobileContainer,
+  maxPCContainer,
+  SectionBanner,
+} from "../../components";
 import { thePatronTrilingualText } from "./i18n";
 
 export const ThePatron: React.FC = () => {
   const { lang } = useLanguage();
   const thePatronTexts = thePatronTrilingualText[lang];
+  const { isMobile } = useSettings();
 
   return (
     <div
-      className={`w-full max-w-screen overflow-x-hidden bg-lightBgc font-enzh`}
+      className={`w-full h-full overflow-x-hidden pb-12 bg-lightBgc font-enzh`}
     >
       <SectionBanner title={thePatronTexts.title} />
-      <div className="lg:px-[300px] px-4 py-24 flex flex-col gap-12 text-[10px] md:text-lg/7 !font-thin">
-        <div className="grid grid-cols-2">
-          <div className="px-2 md:px-16 h-full flex items-center my-auto bg-second text-white">
+      <div
+        className="py-6 lg:py-24 flex flex-col gap-6 lg:gap-24 text-dark text-[10px] md:text-lg/7 !font-thin"
+        style={{
+          ...(!isMobile ? maxPCContainer : maxMobileContainer),
+        }}
+      >
+        <div className="grid grid-cols-1 md:grid-cols-2 md:px-0 px-6">
+          <div className="h-full flex items-center my-auto bg-second text-white px-4 py-16 md:py-0 lg:px-12">
             <p>{thePatronTexts.description}</p>
           </div>
-          <div className="h-full px-16 py-20 mx-auto space-y-12">
+          <div className="h-full p-4 lg:px-0 md:py-20 mx-auto space-y-12">
             <img
               src={"/images/thepatron/iRead.avif"}
               alt={""}
-              className="max-w-[380px] h-auto object-cover"
+              className="w-[300px] md:w-full h-auto object-cover"
             />
             <div className="flex justify-center">
               <a

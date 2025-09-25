@@ -2,8 +2,9 @@ export const maxPCContainer: React.CSSProperties = {
   maxWidth: "1440px",
   minWidth: "1024px",
   width: "100%",
+  height: "100%",
   margin: " 0 auto" /* 居中 */,
-  overflowX: "hidden",
+  overflow: "hidden",
 };
 
 export const maxMobileContainer: React.CSSProperties = {

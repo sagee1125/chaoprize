@@ -29,7 +29,7 @@ function App() {
         <SettingsProvider>
           <Layout>
             <TitleManager />
-            <div className="flex flex-col min-h-screen w-screen">
+            <div className="flex flex-col w-screen">
               {/* 內容區域 */}
               <main className="flex-1">
                 <Routes>

@@ -1,6 +1,6 @@
 import React from "react";
 import { fb, ig, spotify, ytb } from "./const";
-import { Language, useLanguage, useSettings } from "../../context";
+import { useLanguage, useSettings } from "../../context";
 import { trilingualText } from "./i18n";
 import { useSitemap } from "../../utils";
 import { maxMobileContainer, maxPCContainer } from "../Container";

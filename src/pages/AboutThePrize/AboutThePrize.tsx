@@ -1,20 +1,30 @@
 import React from "react";
-import { Language, useLanguage } from "../../context";
-import { SectionBanner } from "../../components";
+import { useLanguage, useSettings } from "../../context";
+import {
+  maxMobileContainer,
+  maxPCContainer,
+  SectionBanner,
+} from "../../components";
 import { aboutPrizeTrilingualText } from "./i18n";
 
 export const AboutThePrize: React.FC = () => {
   const { lang } = useLanguage();
   const aboutPrizeTexts = aboutPrizeTrilingualText[lang];
+  const { isMobile } = useSettings();
 
   return (
     <div
-      className={`w-full max-w-screen overflow-x-hidden pb-12 bg-lightBgc font-enzh`}
+      className={`w-full h-full overflow-x-hidden pb-12 bg-lightBgc font-enzh`}
     >
       <SectionBanner title={aboutPrizeTexts.title} />
-      <div className="lg:px-[300px] px-4 flex flex-col gap-24 text-dark text-[10px] md:text-lg/7 !font-thin">
+      <div
+        className="flex flex-col gap-12 lg:gap-24 text-dark text-[10px] md:text-lg/7 !font-thin"
+        style={{
+          ...(!isMobile ? maxPCContainer : maxMobileContainer),
+        }}
+      >
         <div className="grid grid-cols-2">
-          <div className="pr-4 md:pr-10 py-10 flex my-auto">
+          <div className="px-4 md:pr-10 py-10 flex my-auto">
             <p dangerouslySetInnerHTML={{ __html: aboutPrizeTexts.intro }} />
           </div>
           <div>
@@ -26,7 +36,7 @@ export const AboutThePrize: React.FC = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-[1fr,3fr]">
+        <div className="grid grid-cols-[1fr,3fr] px-4 lg:px-0">
           <div className="text-lg md:text-3xl">{aboutPrizeTexts.aim}</div>
           <div className="pl-5">
             <ul className="list-disc space-y-1">
@@ -37,7 +47,7 @@ export const AboutThePrize: React.FC = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-[1fr,3fr]">
+        <div className="grid grid-cols-[1fr,3fr] px-4 lg:px-0">
           <div
             className="text-lg md:text-3xl"
             dangerouslySetInnerHTML={{
@@ -59,7 +69,7 @@ export const AboutThePrize: React.FC = () => {
             className="w-full h-auto object-cover"
           />
         </div>
-        <div className="grid grid-cols-[1fr,3fr]">
+        <div className="grid grid-cols-[1fr,3fr] px-4 lg:px-0">
           <div className="text-lg md:text-3xl">{aboutPrizeTexts.logo}</div>
           <div>{aboutPrizeTexts.logoDsc}</div>
         </div>
