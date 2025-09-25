@@ -24,10 +24,7 @@ export const Home: React.FC = () => {
     "/banner/HEI_9006.jpg",
   ];
 
-  const awardsLaureatesImages = [
-    "/images/homepage/LAA-EN_3x.avif",
-    "/images/homepage/ECCA-EN_3x.avif",
-  ];
+  const awardsLaureatesImages = [awardsTexts.photoLeft, awardsTexts.photoRight];
 
   const nominationSection = [
     {
@@ -73,30 +70,36 @@ export const Home: React.FC = () => {
     >
       <Banner />
 
-      <div className="w-full mx-auto text-center text-main py-12 px-4 !font-thin">
+      <div className="w-full mx-auto text-center text-main py-6 lg:py-10 px-4 !font-thin">
         <a href="/abouttheprize" target="_self">
-          <p className="text-5xl my-10 text-dark">{aboutPrizeTexts.title}</p>
+          <p className="text-base md:text-lg lg:text-5xl my-2 md:my-4 lg:my-10 text-dark">
+            {aboutPrizeTexts.title}
+          </p>
         </a>
         <p
-          className="mb-6 leading-relaxed text-lg"
+          className="mb-3 md:mb-6 leading-relaxed text-xs md:text-sm lg:text-lg"
           dangerouslySetInnerHTML={{ __html: aboutPrizeTexts.description }}
         />
         {/* Learn More button */}
         <a
           href="/abouttheprize"
-          className="inline-block bg-[#b68b47] hover:bg-main text-white px-6 py-3 font-medium transition-colors tracking-wider"
+          className="inline-block bg-[#b68b47] hover:bg-main text-white px-3 py-2 md:px-6 md:py-3 font-medium 
+                    transition-colors tracking-wider
+                    text-xs lg:text-base"
         >
           {aboutPrizeTexts.button}
         </a>
       </div>
 
-      <div className="p-8">
+      <div className="p-4 md:p-8">
         <ImageMarquee imgs={marqueeImgs} speed={48} />
       </div>
 
       <div className="w-full mx-auto text-center text-main py-12 px-4 !font-thin">
-        <p className="text-5xl my-10 text-dark">{awardsTexts.title}</p>
-        <p className="mb-10 leading-relaxed text-lg">
+        <p className="text-base md:text-lg lg:text-5xl my-2 md:my-4 lg:my-10 text-dark">
+          {awardsTexts.title}
+        </p>
+        <p className="mb-6 md:mb-10 leading-relaxed text-xs md:text-sm lg:text-lg">
           {awardsTexts.description}
         </p>
         <div className="flex flex-col md:flex-row justify-center items-center gap-8">
@@ -118,7 +121,7 @@ export const Home: React.FC = () => {
       </div>
 
       <div className="w-full  mx-auto text-center text-main py-12 px-4 !font-thin">
-        <p className="text-5xl my-10 text-dark">
+        <p className="text-base md:text-lg lg:text-5xl my-2 md:my-4 lg:my-10 text-dark">
           {awardsTexts.nominationUpperCase}
         </p>
         <div className="flex flex-col md:flex-row justify-center items-center gap-8">
@@ -130,7 +133,7 @@ export const Home: React.FC = () => {
             >
               <div>{item.icon}</div>
               <a
-                className="text-lg md:text-4xl"
+                className="text-base md:text-md lg::text-4xl"
                 href={item.href}
                 target="_self"
               >
@@ -139,7 +142,9 @@ export const Home: React.FC = () => {
               <a
                 href={item.href}
                 target="_self"
-                className="inline-block bg-[#b68b47] hover:bg-main text-white px-6 py-3 font-medium transition-colors tracking-wider"
+                className="inline-block bg-[#b68b47] hover:bg-main text-white px-3 py-2 md:px-6 md:py-3 font-medium 
+                    transition-colors tracking-wider
+                    text-xs lg:text-base"
               >
                 {aboutPrizeTexts.button}
               </a>
@@ -149,7 +154,9 @@ export const Home: React.FC = () => {
       </div>
 
       <div className="mx-8 md:px-[240px] w-full mx-auto text-center text-main py-12 px-4 !font-thin">
-        <p className="text-5xl my-10 text-dark">{mediaText.title}</p>
+        <p className="text-base md:text-lg lg:text-5xl my-2 md:my-4 lg:my-10 text-dark">
+          {mediaText.title}
+        </p>
         <div className="w-full grid grid-cols-3 gap-4 md:gap-8">
           {mediaSection.map((item, idx) => (
             <div
@@ -167,8 +174,8 @@ export const Home: React.FC = () => {
               <a href={item.href} className="md:text-base py-4 text-main">
                 {item.cate}
               </a>
-              <span className="md:text-base">{item.label}</span>
-              <span className="md:text-base">{item.desc}</span>
+              <span className="md:text-base line-clamp-1">{item.label}</span>
+              {isPC && <span className="md:text-base">{item.desc}</span>}
 
               {item.viewWebsite ? (
                 <a
@@ -212,11 +219,11 @@ function ImageMarquee({
         style={{ animationDuration: `${speed}s` }}
       >
         {/* 第一組圖片 */}
-        <div className="flex shrink-0 gap-8">
+        <div className="flex shrink-0 gap-2 md:gap-8">
           {imgs.map((src, i) => (
             <div
               key={`img1-${i}`}
-              className="w-[400px] h-[250px] overflow-hidden mx-2"
+              className="w-[160px] h-[100px] md:w-[400px] md:h-[250px] overflow-hidden mx-2"
             >
               <img
                 src={src}
@@ -228,11 +235,11 @@ function ImageMarquee({
         </div>
 
         {/* 第二組圖片（複製一份，實現無縫循環） */}
-        <div className="flex shrink-0 gap-8">
+        <div className="flex shrink-0 gap-2 md:gap-8">
           {imgs.map((src, i) => (
             <div
               key={`img2-${i}`}
-              className="w-[400px] h-[250px] overflow-hidden mx-2"
+              className="w-[160px] h-[100px] md:w-[400px] md:h-[250px] overflow-hidden mx-2"
             >
               <img
                 src={src}
@@ -244,11 +251,11 @@ function ImageMarquee({
         </div>
 
         {/* 第三組圖片（複製一份，實現無縫循環） */}
-        <div className="flex shrink-0 gap-8">
+        <div className="flex shrink-0 gap-2 md:gap-8">
           {imgs.map((src, i) => (
             <div
               key={`img3-${i}`}
-              className="w-[400px] h-[250px] overflow-hidden mx-2"
+              className="w-[160px] h-[100px] md:w-[400px] md:h-[250px] overflow-hidden mx-2"
             >
               <img
                 src={src}

@@ -31,6 +31,7 @@ const layoutStyle: React.CSSProperties = {
   display: "flex",
   flexDirection: "column",
   minHeight: "100vh",
+  overflowX: "hidden",
   width: "100%",
 };
 

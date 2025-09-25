@@ -33,7 +33,9 @@ type AwardsKeys =
   | "description"
   | "nomination"
   | "importantDates"
-  | "nominationUpperCase";
+  | "nominationUpperCase"
+  | "photoLeft"
+  | "photoRight";
 
 export const awardsTrilingualText: Record<
   Language,
@@ -41,6 +43,8 @@ export const awardsTrilingualText: Record<
 > = {
   [Language.EN]: {
     title: "AWARDS & LAUREATES",
+    photoLeft: "/images/homepage/LAA-EN_3x.avif",
+    photoRight: "/images/homepage/ECCA-EN_3x.avif",
     description: `Two awards will be given biennially, namely<br />
 Lifetime Achievement Award and Early Career Contribution Award.`,
     nomination: "Nomination",
@@ -49,14 +53,17 @@ Lifetime Achievement Award and Early Career Contribution Award.`,
   },
   [Language.SC]: {
     title: "奖项与得奖者",
+    photoLeft: "/images/homepage/LAA-SC_3x.avif",
+    photoRight: "/images/homepage/ECCA-SC_3x.avif",
     description: `每两年颁发一次，设有「终身成就奖」及「杰出青年学者奖」两个奖项。`,
     nomination: "提名",
     nominationUpperCase: "提名",
-
     importantDates: "重要日期",
   },
   [Language.TC]: {
     title: "獎項與得獎者",
+    photoLeft: "/images/homepage/LAA-TC_3x.avif",
+    photoRight: "/images/homepage/ECCA-TC_3x.avif",
     description: `每兩年頒發一次，設有「終身成就獎」及「傑出青年學者獎」兩個獎項。`,
     nomination: "提名",
     nominationUpperCase: "提名",
