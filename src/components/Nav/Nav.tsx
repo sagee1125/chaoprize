@@ -93,7 +93,7 @@ const Nav: React.FC = () => {
           {/* 下拉框：背景等寬 nav，內容對齊 hovered item */}
           {hovered &&
             sitemap.find((col) => col.title === hovered)?.links.length! > 0 && (
-              <div className="absolute left-0 top-full w-full h-[130px] bg-white/80 text-black shadow-lg z-40 overflow-auto">
+              <div className="absolute left-0 top-full w-full h-[102px] bg-white/80 text-black shadow-lg z-40 overflow-auto">
                 {/* <ul className="flex flex-col pt-6 pb-4 px-3 gap-2 whitespace-nowrap overflow-visible">
                   {sitemap
                     .find((col) => col.title === hovered)!
