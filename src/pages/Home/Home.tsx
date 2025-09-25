@@ -100,9 +100,10 @@ export const Home: React.FC = () => {
         <p className="text-base md:text-lg lg:text-5xl my-2 md:my-4 lg:my-10 text-dark">
           {awardsTexts.title}
         </p>
-        <p className="mb-6 md:mb-10 leading-relaxed text-xs md:text-sm lg:text-lg">
-          {awardsTexts.description}
-        </p>
+        <p
+          className="mb-6 md:mb-10 leading-relaxed text-xs md:text-sm lg:text-lg"
+          dangerouslySetInnerHTML={{ __html: awardsTexts.description }}
+        />
         <div className="flex flex-col md:flex-row justify-center items-center gap-8">
           {awardsLaureatesImages.map((src, idx) => (
             <div
