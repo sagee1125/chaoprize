@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { useSitemap } from "../../utils";
 import { Language, useLanguage, useSettings } from "../../context";
@@ -8,7 +8,6 @@ import {
   IconButton,
   List,
   ListItemButton,
-  ListItemText,
 } from "@mui/material";
 import { Menu, Close, KeyboardArrowDown } from "@mui/icons-material";
 
@@ -33,15 +32,15 @@ const Nav: React.FC = () => {
   if (isPC)
     return (
       <nav
-        className={`text-main w-full space-x-6  items-center relative flex justify-center font-enzh`}
+        className={`text-main w-full items-center relative flex justify-center font-enzh`}
         onMouseLeave={() => setHovered(null)}
       >
         <div
-          className={`flex px-8 py-4 relative ${
-            lang === Language.EN ? "space-x-6" : "space-x-12"
+          className={`flex py-4 px-3 relative justify-between ${
+            lang === Language.EN ? "w-[800px]" : "w-[500px]"
           }`}
         >
-          {sitemap.map((col) => (
+          {sitemap.map((col, idx) => (
             <div
               key={col.title}
               className="relative"
@@ -70,14 +69,32 @@ const Nav: React.FC = () => {
                   />
                 )}
               </a>
+
+              {/* 下拉框：只在當前 hover 顯示，寬度自適應父元素 */}
+              {hovered === col.title && col.links.length > 0 && (
+                <div className="absolute left-0 top-full min-w-full z-50">
+                  <ul className="flex flex-col py-4 gap-2 whitespace-nowrap">
+                    {col.links.map((link) => (
+                      <li key={link.label}>
+                        <a
+                          href={link.href}
+                          className="text-main hover:text-second relative whitespace-nowrap"
+                        >
+                          {link.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           ))}
 
-          {/* 下拉框，寬度等於整個 nav */}
+          {/* 下拉框：背景等寬 nav，內容對齊 hovered item */}
           {hovered &&
             sitemap.find((col) => col.title === hovered)?.links.length! > 0 && (
-              <div className="absolute left-0 top-full w-full h-[200px] bg-white/80 text-black shadow-lg z-50 overflow-auto">
-                <ul className="flex flex-col p-4 gap-2">
+              <div className="absolute left-0 top-full w-full h-[130px] bg-white/80 text-black shadow-lg z-40 overflow-auto">
+                {/* <ul className="flex flex-col pt-6 pb-4 px-3 gap-2 whitespace-nowrap overflow-visible">
                   {sitemap
                     .find((col) => col.title === hovered)!
                     .links.map((link) => (
@@ -85,7 +102,7 @@ const Nav: React.FC = () => {
                         <a
                           href={link.href}
                           className="
-                          text-main hover:text-second relative
+                          text-main hover:text-second relative overflow-visible whitespace-nowrap
                           after:content-[''] after:absolute after:left-0 after:bottom-0
                           after:h-[1px] after:w-full after:bg-current after:origin-left
                           after:scale-x-0 after:transition-transform after:duration-300
@@ -96,7 +113,7 @@ const Nav: React.FC = () => {
                         </a>
                       </li>
                     ))}
-                </ul>
+                </ul> */}
               </div>
             )}
         </div>

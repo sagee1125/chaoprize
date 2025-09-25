@@ -27,7 +27,7 @@ export const mediaTypeTrilingualText: Record<
     [MediaType.Pdf]: "PDF",
     [MediaType.Album]: "特辑",
     [MediaType.Photo]: "赵元任语言科学奖成立典礼",
-    [MediaType.Award]: "Award Presentation Ceremony",
+    [MediaType.Award]: "赵元任语言科学奖颁奖典礼",
   },
   [Language.TC]: {
     [MediaType.News]: "最新消息",
@@ -35,7 +35,7 @@ export const mediaTypeTrilingualText: Record<
     [MediaType.Pdf]: "PDF",
     [MediaType.Album]: "特輯",
     [MediaType.Photo]: "趙元任語言科學獎成立典禮",
-    [MediaType.Award]: "Award Presentation Ceremony",
+    [MediaType.Award]: "趙元任語言科學獎頒獎典禮",
   },
 };
 

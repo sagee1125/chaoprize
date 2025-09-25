@@ -1,6 +1,10 @@
 import React from "react";
-import { useLanguage } from "../../context";
-import { SectionBanner } from "../../components";
+import { useLanguage, useSettings } from "../../context";
+import {
+  maxMobileContainer,
+  maxPCContainer,
+  SectionBanner,
+} from "../../components";
 import { MediaContainer } from "../../components/MediaContainer";
 import { MediaType } from "../../components/MediaContainer/const";
 import { galleryTrilingualText } from "./i18n";
@@ -8,6 +12,7 @@ import { galleryTrilingualText } from "./i18n";
 export const AwardPresentationCeremony: React.FC = () => {
   const { lang } = useLanguage();
   const galleryTexts = galleryTrilingualText[lang];
+  const { isMobile } = useSettings();
 
   const photos = [
     {
@@ -76,12 +81,15 @@ export const AwardPresentationCeremony: React.FC = () => {
   ];
 
   return (
-    <div
-      className={`w-full max-w-screen overflow-x-hidden pb-12 bg-white font-enzh`}
-    >
+    <div className={`w-full h-full overflow-x-hidden bg-white font-enzh`}>
       <SectionBanner title={galleryTexts.awardPresentationCeremony} />
-      <div className="lg:px-[300px] px-4 flex flex-col gap-24 text-dark !font-thin py-8 md:py-20">
-        <div className="grid grid-cols-3 gap-6">
+      <div
+        className="py-8 lg:py-24 flex flex-col gap-12 text-dark text-[10px] md:text-lg/7 !font-thin px-6 lg:px-0"
+        style={{
+          ...(!isMobile ? maxPCContainer : maxMobileContainer),
+        }}
+      >
+        <div className="grid grid-cols-3 gap-2 md:gap-6">
           {photos.map((item, i) => (
             <MediaContainer
               key={i}
