@@ -1,13 +1,14 @@
 import React from "react";
 import { fb, ig, spotify, ytb } from "./const";
-import { Language, useLanguage } from "../../context";
+import { Language, useLanguage, useSettings } from "../../context";
 import { trilingualText } from "./i18n";
 import { useSitemap } from "../../utils";
+import { maxMobileContainer, maxPCContainer } from "../Container";
 
 export const Footer: React.FC = () => {
   const { lang } = useLanguage();
   const sitemap = useSitemap();
-
+  const { isMobile } = useSettings();
   const platforms: Array<{ icon: React.ReactNode; href: string }> = [
     {
       icon: ig,
@@ -54,18 +55,15 @@ export const Footer: React.FC = () => {
     },
   ];
   return (
-    <footer className={`w-screen bg-bcg font-enzh`}>
+    <footer
+      className={`w-screen bg-bcg font-enzh py-12 lg:py-24 px-12 lg:px-0`}
+    >
       <div
-        className="
-          mx-auto 
-          max-w-[1280px] 
-          w-full 
-          md:py-[100px] md:px-0
-          flex flex-col justify-start items-start
-          h-auto md:min-h-[650px]
-        "
+        style={{
+          ...(!isMobile ? maxPCContainer : maxMobileContainer),
+        }}
       >
-        <div className="lg:py-[24px] lg:px-[40px] space-y-[48px] w-full">
+        <div className="lg:py-[24px] space-y-[48px] w-full">
           <div className="w-full flex justify-between">
             <a href="/" target="_self">
               <img
@@ -89,23 +87,32 @@ export const Footer: React.FC = () => {
               ))}
             </div>
           </div>
-          <div className="text-main w-full py-6">
-            <div className="mx-auto w-[1200px] w-full grid grid-cols-1 sm:grid-cols-5 gap-8">
+          <div className="text-main w-full py-3 lg:py-6">
+            <div className="mx-auto w-full grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8">
               {sitemap.map((col, i) => (
                 <div key={i} className="flex flex-col items-start">
                   {/* 列頭 */}
-                  <h3 className="mb-2">{col.title}</h3>
+                  <h3 className="mb-2 text-base">{col.title}</h3>
                   {/* 分界線 */}
-                  <hr className="w-full border-t-1 border-main mb-6 mt-4 pr-8" />
+                  <hr className="w-full border-t-1 border-main mb-2 lg:mb-6 lg:mt-4 pr-8" />
                   {/* 列身 */}
                   <ul className="flex flex-col justify-start items-start gap-2">
-                    {col.links.map((link) => (
-                      <li key={link.label}>
-                        <a href={link.href} className="">
-                          {link.label}
-                        </a>
-                      </li>
-                    ))}
+                    {col.links.length > 0 ? (
+                      <>
+                        {col.links.map((link) => (
+                          <li key={link.label} className="text-xs lg:text-base">
+                            <a href={link.href}>{link.label}</a>
+                          </li>
+                        ))}
+                      </>
+                    ) : (
+                      <a
+                        href="mailto:chao.prize@polyu.edu.hk"
+                        className="text-xs lg:text-base"
+                      >
+                        chao.prize@polyu.edu.hk
+                      </a>
+                    )}
                   </ul>
                 </div>
               ))}
@@ -113,7 +120,7 @@ export const Footer: React.FC = () => {
           </div>
 
           <div className="text-main w-full py-2 space-y-2">
-            <div className="mx-auto w-[1200px] w-full flex gap-10 text-base tracking-tight">
+            <div className="mx-auto w-full flex gap-10 text-base tracking-tight">
               {otherInfo.map((info, i) => {
                 if (info.href)
                   return (

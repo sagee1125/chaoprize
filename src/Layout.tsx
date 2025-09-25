@@ -31,18 +31,19 @@ const layoutStyle: React.CSSProperties = {
   display: "flex",
   flexDirection: "column",
   minHeight: "100vh",
-  overflowX: "hidden",
   width: "100%",
+  overflowX: "hidden",
 };
 
 const pcStyle: React.CSSProperties = {
   minWidth: "1440px",
   width: "100%",
+  overflowX: "hidden",
 };
 const mobileStyle: React.CSSProperties = {
   maxWidth: "1440px",
   width: "100%",
-  overflow: "hidden",
+  overflowX: "hidden",
 };
 
 const contentStyle: React.CSSProperties = {

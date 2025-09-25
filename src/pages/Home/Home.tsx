@@ -7,6 +7,7 @@ import {
   awardsTrilingualText,
   mediaTrilingualText,
 } from "./i18n";
+import { maxMobileContainer, maxPCContainer } from "../../components";
 
 export const Home: React.FC = () => {
   const { lang } = useLanguage();
@@ -120,7 +121,7 @@ export const Home: React.FC = () => {
         </div>
       </div>
 
-      <div className="w-full  mx-auto text-center text-main py-12 px-4 !font-thin">
+      <div className="w-full mx-auto text-center text-main py-12 px-4 !font-thin">
         <p className="text-base md:text-lg lg:text-5xl my-2 md:my-4 lg:my-10 text-dark">
           {awardsTexts.nominationUpperCase}
         </p>
@@ -153,7 +154,12 @@ export const Home: React.FC = () => {
         </div>
       </div>
 
-      <div className="mx-8 md:px-[240px] w-full mx-auto text-center text-main py-12 px-4 !font-thin">
+      <div
+        className="w-full mx-auto text-center text-main py-12 !font-thin"
+        style={{
+          ...(isPC ? maxPCContainer : maxMobileContainer),
+        }}
+      >
         <p className="text-base md:text-lg lg:text-5xl my-2 md:my-4 lg:my-10 text-dark">
           {mediaText.title}
         </p>
